@@ -1,27 +1,50 @@
-# GProject - Simple Web Development Template (HTML & CSS)
+# GProject - Creative Web Design (Website Template Nâng Cao)
 
-Dự án thực hành xây dựng cấu trúc và định dạng trang web **Simple Web Development Template** sử dụng thẻ `<section>` và **CSS Flexbox**.
+Dự án bài tập: **Giao Diện Đẹp Mắt - Website Template Nâng Cao** sử dụng HTML5, CSS Flexbox & CSS Grid, hình nền hiệu ứng blur và thanh điều hướng cố định (fixed navbar).
 
-## 📌 Các thành phần chính của trang web:
-1. **Thanh điều hướng (`nav.navbar.background`)**:
-   - Logo bo góc tròn (`.logo img`).
-   - Danh sách menu liên kết: **Web Technology**, **C Programming**, **Courses**.
-   - Khung tìm kiếm ở bên phải (`.rightNav`) với ô `#search` và nút `button.btn.btn-sm`.
-2. **Phần 1: Web Technology (`section.firstsection`)**:
-   - Nền màu xanh lá (`#1e7e34` / `green`), chiều cao `400px`.
-   - Căn giữa nội dung bằng Flexbox (`.box-main`).
-3. **Phần 2: C Programming (`section.secondsection`)**:
-   - Nền màu xanh dương (`#0056b3` / `blue`), chiều cao `400px`.
-   - Nội dung giới thiệu ngôn ngữ C.
-4. **Phần 3: Java (`section.section`)**:
-   - Bố cục Flexbox hai khối ngang: nội dung mô tả bên trái (`.paras`) và hình ảnh máy tính bên phải (`.thumbnail img`).
-   - Hỗ trợ đổi chiều hiển thị linh hoạt với lớp `.section-Left` (`flex-direction: row-reverse`).
-5. **Footer (`footer.background`)**:
-   - Nền đen với dòng chữ bản quyền `Copyright © - All rights are reserved` căn giữa (`.text-footer`).
+---
 
-## 📁 Danh sách tệp tin:
-- `index.html`: Toàn bộ cấu trúc HTML và liên kết CSS của trang web.
-- `style.css`: Quy tắc định dạng CSS chi tiết theo đúng bài học.
-- `logo.png`: Hình ảnh logo thanh điều hướng.
-- `img.png`: Hình ảnh máy tính minh họa cho phần Java.
-- `simple-template-result.png`: Ảnh chụp kết quả hiển thị trên trình duyệt.
+## 🌟 Tính năng & Cấu trúc giao diện
+
+1. **Header với nền ảnh và hiệu ứng Blur (`.header`)**:
+   - Sử dụng hình nền `banner.jpg` chất lượng cao với pseudo-element `::before` áp dụng `filter: blur(8px)`.
+   - Lớp phủ tối `::after` với `rgba(0, 0, 0, 0.5)` giúp tiêu đề `Creative Web Design` và nút kêu gọi hành động (`.btn`) nổi bật, rõ ràng.
+2. **Navigation Menu cố định (`.navbar`)**:
+   - Menu cố định trên cùng (`position: fixed; top: 0; z-index: 1000`) khi cuộn trang.
+   - Các liên kết menu: *Trang chủ*, *Dịch vụ*, *Blog*, *Liên hệ* có hiệu ứng chuyển màu mượt mà khi hover (`#f39c12`).
+3. **Content Section - Card Layout (`.card-container`, `.card`)**:
+   - Bố cục lưới **CSS Grid** (`grid-template-columns: repeat(3, 1fr)`).
+   - 3 Card dịch vụ hiện đại kèm hình ảnh minh họa chân thực:
+     - **Thiết kế Website** (`images/service1.jpg`)
+     - **SEO & Marketing** (`images/service2.jpg`)
+     - **Hỗ trợ 24/7** (`images/service3.jpg`)
+   - Hiệu ứng tương tác hover phóng to nhẹ (`transform: scale(1.05)`).
+   - Sử dụng dấu chấm (`•`) chuẩn theo yêu cầu để phân cấp nội dung chuyên nghiệp.
+4. **Footer chuyên nghiệp 2 cột (`.footer`)**:
+   - Sử dụng **Flexbox** với `justify-content: space-between`.
+   - Cột trái: Thông tin bản quyền (`• © 2025 Creative Web. All rights reserved.`).
+   - Cột phải: Kênh truyền thông (`• Theo dõi chúng tôi: • Facebook | Twitter | LinkedIn`).
+
+---
+
+## 📁 Cấu trúc thư mục
+
+```text
+website-template-advanced/
+├── index.html
+├── css/
+│   ├── style.css
+├── images/
+│   ├── banner.jpg
+│   ├── service1.jpg
+│   ├── service2.jpg
+│   ├── service3.jpg
+```
+*(Đồng thời toàn bộ mã nguồn cũng được đặt tại thư mục gốc để thuận tiện truy cập trực tiếp).*
+
+---
+
+## 📸 Kết quả hiển thị
+
+Giao diện hiển thị trực quan và đã được kiểm tra trên trình duyệt:
+- `advanced-template-result.png`
