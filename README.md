@@ -1,24 +1,22 @@
-# GProject - Thực hành Bootstrap 5 Tổng Hợp
+# GProject - Giao Diện Đăng Ký Chuyên Nghiệp với Bootstrap Forms & Carousel
 
-Dự án thực hành sử dụng **Bootstrap 5.3.3** để tạo bố cục linh hoạt, ứng dụng Display Property, Margin & Padding, Flexbox, Carousel, Font Awesome và Form.
+Dự án thực hành sử dụng **Bootstrap 5.3.3 Forms** và **Bootstrap Carousel** để thiết kế giao diện trang đăng ký tài khoản chuyên nghiệp.
 
-## 📌 Các bước thực hiện chi tiết:
-1. **Bước 1 (Grid 3 cột & Flexbox căn giữa)**:
-   - Sử dụng `.container.mt-5` và `.row`.
-   - 3 cột `.col-md-4` kết hợp `.d-flex.justify-content-center.align-items-center` với các màu nền `bg-light`, `bg-secondary text-white`.
-2. **Bước 2 (Margin & Padding)**:
-   - Áp dụng `.my-5.py-3` tạo khoảng cách cho tiêu đề.
-3. **Bước 3 (Display Property ẩn / hiện)**:
-   - Sử dụng `.d-none.d-md-block.bg-warning.text-center.p-3` chỉ hiển thị trên màn hình lớn &ge; 768px.
-4. **Bước 4 (Carousel 3 Slides)**:
-   - Khối `#myCarousel` dạng slideshow tự động chuyển ảnh với nút prev/next.
-5. **Bước 5 (Font Awesome)**:
-   - Nhúng Font Awesome 6.5.2 và sử dụng `<i class="fas fa-home"></i>` và `<i class="fas fa-paper-plane"></i>`.
-6. **Bước 6 (Form liên hệ)**:
-   - Form gồm: Họ và tên (`#name`), Email (`#email`), Nội dung (`#message`) và nút Gửi (`btn btn-primary`).
+## 📌 Các thành phần chính của giao diện:
+1. **Bootstrap Carousel (Cột lợi ích dịch vụ)**:
+   - Trình chiếu tự động các slide hình ảnh giới thiệu tiện ích và ưu đãi của dịch vụ.
+   - Các slide kèm tiêu đề nổi bật, mô tả ngắn gọn và nút điều hướng qua lại (Prev / Next).
+2. **Bootstrap Form (Cột đăng ký tài khoản)**:
+   - **Họ và tên**: Ô nhập liệu có `form-control` và `input-group`.
+   - **Email**: Ô nhập email có `form-control` và `input-group`.
+   - **Mật khẩu**: Ô nhập mật khẩu bảo mật.
+   - **Xác nhận mật khẩu**: Kiểm tra tính chính xác của mật khẩu.
+   - **Nút Đăng ký**: Nút hành động nổi bật bằng lớp `btn-primary`.
+3. **Bố cục & Tính Responsive**:
+   - Sử dụng **Bootstrap Grid** chia 2 cột đối xứng trên màn hình máy tính (Desktop) và tự động xếp chồng trên điện thoại (Mobile).
 
 ## 📁 Danh sách tệp tin:
-- `index.html`: Giao diện chính hoàn chỉnh.
-- `exercise-exact.html`: Mã nguồn chuẩn 100% theo các đoạn code của đề bài.
-- `image1.jpg`, `image2.jpg`, `image3.jpg`: 3 hình ảnh cho Carousel.
-- `bootstrap-layout-sample.png`: Ảnh chụp kết quả trên trình duyệt.
+- `index.html`: Giao diện hoàn thiện cao cấp với thiết kế Split-Screen hiện đại.
+- `register-carousel-exact.html`: Mã nguồn chuẩn từng dòng theo đúng yêu cầu đề bài.
+- `register-carousel-desktop.png`: Ảnh chụp giao diện Desktop.
+- `register-carousel-sample.png`: Ảnh chụp giao diện mẫu chuẩn bài học.
