@@ -3,123 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thế Giới Hoạt Hình Thiếu Nhi - Kids Cartoon TV</title>
+    <title>Quản lý Overflow</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- 1. Header cố định (Fixed Header) chứa Logo, Tìm kiếm và Head-link -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="#home">🎬 <span>KIDTOON</span> TV</a>
-            </div>
-
-            <!-- Ô tìm kiếm phim theo tên -->
-            <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm phim hoạt hình...">
-                <button type="button">Tìm kiếm</button>
-            </div>
-
-            <!-- Head-link: Chứa các liên kết trang -->
-            <nav class="head-link">
-                <ul>
-                    <li><a href="#home" class="active">Trang chủ</a></li>
-                    <li><a href="#new">Mới cập nhật</a></li>
-                    <li><a href="#popular">Xem nhiều nhất</a></li>
-                    <li><a href="#category">Thể loại</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- 2. Phần thân chính phân chia Left Content & Right Content -->
-    <div class="main-container">
-        <!-- Left Content: Menu danh sách video có sẵn -->
-        <aside class="left-content">
-            <div class="sidebar-header">
-                <h3>Danh Sách Phim Tuyển Chọn</h3>
-                <span class="badge">HD / FullHD</span>
-            </div>
-
-            <div class="video-list">
-                <div class="video-item active-video">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=200&q=80" alt="Chú Thỏ Dũng Cảm">
-                    <div class="video-info">
-                        <h4>1. Chú Thỏ Dũng Cảm (Bản Thuyết Minh)</h4>
-                        <span class="duration">⏱ 10:34 • FullHD 1080p</span>
-                    </div>
-                </div>
-
-                <div class="video-item">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=200&q=80" alt="Cuộc Phiêu Lưu Của Voi Con">
-                    <div class="video-info">
-                        <h4>2. Cuộc Phiêu Lưu Của Voi Con</h4>
-                        <span class="duration">⏱ 12:15 • HD 720p</span>
-                    </div>
-                </div>
-
-                <div class="video-item">
-                    <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=200&q=80" alt="Những Người Bạn Rừng Xanh">
-                    <div class="video-info">
-                        <h4>3. Những Người Bạn Rừng Xanh</h4>
-                        <span class="duration">⏱ 08:45 • FullHD 1080p</span>
-                    </div>
-                </div>
-
-                <div class="video-item">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=200&q=80" alt="Thế Giới Dưới Đáy Biển">
-                    <div class="video-info">
-                        <h4>4. Khám Phá Thế Giới Đại Dương</h4>
-                        <span class="duration">⏱ 15:20 • HD 720p</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Right Content: Khu vực phát video (Sử dụng cả thẻ <video> và <iframe>) -->
-        <main class="right-content">
-            <!-- Khu vực 1: Video chính phát trực tiếp bằng thẻ <video> -->
-            <div class="player-wrapper">
-                <h2>Đang phát: Chú Thỏ Thông Thái &amp; Những Người Bạn</h2>
-                <div class="video-box">
-                    <video controls poster="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80">
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ thẻ video.
-                    </video>
-                </div>
-                <div class="video-meta">
-                    <span class="tag quality">FullHD 1080p</span>
-                    <span class="tag voice">Thuyết Minh Tiếng Việt</span>
-                    <span class="tag safe">✓ An Toàn Cho Trẻ Em</span>
-                    <span class="tag no-ads">🚫 Không Quảng Cáo</span>
-                </div>
-                <p class="description">
-                    <strong>Nội dung:</strong> Phim hoạt hình giáo dục bổ ích về lòng dũng cảm, tình bạn và sự sẻ chia. Toàn bộ nội dung đã qua kiểm duyệt kỹ càng, đảm bảo không có cảnh bạo lực hay quảng cáo độc hại.
-                </p>
-            </div>
-
-            <!-- Khu vực 2: Video nhúng từ YouTube bằng thẻ <iframe> -->
-            <div class="youtube-wrapper">
-                <h3>Phim Hoạt Hình Nổi Bật Trên YouTube (Nhúng qua &lt;iframe&gt;)</h3>
-                <div class="iframe-box">
-                    <iframe 
-                        src="https://www.youtube.com/embed/ScMzIvxBSi4" 
-                        title="Phim hoạt hình thiếu nhi YouTube" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </main>
+    <div class="overflow-box">
+        Đây là một đoạn văn bản rất dài mà chúng ta sẽ kiểm tra cách `overflow` hoạt động khi nội dung vượt quá kích thước của phần tử. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies nunc in mauris pharetra, a ultricies justo fermentum.
     </div>
-
-    <!-- 3. Footer: Thông tin bản quyền -->
-    <footer class="footer">
-        <p>&copy; 2026 KIDTOON TV - Trang web phim hoạt hình giáo dục & an toàn dành cho trẻ em Việt Nam.</p>
-        <p>Cam kết chất lượng chuẩn HD - FullHD, thuyết minh chuẩn, thân thiện và 100% không quảng cáo.</p>
-    </footer>
-
 </body>
 </html>
