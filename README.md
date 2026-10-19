@@ -1,50 +1,60 @@
-# GProject - Creative Web Design (Website Template Nâng Cao)
+# GProject - Phân Tích & Triển Khai Website Template Cơ Bản (HTML & CSS)
 
-Dự án bài tập: **Giao Diện Đẹp Mắt - Website Template Nâng Cao** sử dụng HTML5, CSS Flexbox & CSS Grid, hình nền hiệu ứng blur và thanh điều hướng cố định (fixed navbar).
-
----
-
-## 🌟 Tính năng & Cấu trúc giao diện
-
-1. **Header với nền ảnh và hiệu ứng Blur (`.header`)**:
-   - Sử dụng hình nền `banner.jpg` chất lượng cao với pseudo-element `::before` áp dụng `filter: blur(8px)`.
-   - Lớp phủ tối `::after` với `rgba(0, 0, 0, 0.5)` giúp tiêu đề `Creative Web Design` và nút kêu gọi hành động (`.btn`) nổi bật, rõ ràng.
-2. **Navigation Menu cố định (`.navbar`)**:
-   - Menu cố định trên cùng (`position: fixed; top: 0; z-index: 1000`) khi cuộn trang.
-   - Các liên kết menu: *Trang chủ*, *Dịch vụ*, *Blog*, *Liên hệ* có hiệu ứng chuyển màu mượt mà khi hover (`#f39c12`).
-3. **Content Section - Card Layout (`.card-container`, `.card`)**:
-   - Bố cục lưới **CSS Grid** (`grid-template-columns: repeat(3, 1fr)`).
-   - 3 Card dịch vụ hiện đại kèm hình ảnh minh họa chân thực:
-     - **Thiết kế Website** (`images/service1.jpg`)
-     - **SEO & Marketing** (`images/service2.jpg`)
-     - **Hỗ trợ 24/7** (`images/service3.jpg`)
-   - Hiệu ứng tương tác hover phóng to nhẹ (`transform: scale(1.05)`).
-   - Sử dụng dấu chấm (`•`) chuẩn theo yêu cầu để phân cấp nội dung chuyên nghiệp.
-4. **Footer chuyên nghiệp 2 cột (`.footer`)**:
-   - Sử dụng **Flexbox** với `justify-content: space-between`.
-   - Cột trái: Thông tin bản quyền (`• © 2025 Creative Web. All rights reserved.`).
-   - Cột phải: Kênh truyền thông (`• Theo dõi chúng tôi: • Facebook | Twitter | LinkedIn`).
+## 🎯 Mục tiêu bài tập
+1. Phân tích cấu trúc của một website thực tế theo các phần chính: Header, Navigation Menu, Content Section, Footer.
+2. Xây dựng lại bố cục tương tự bằng HTML5 & CSS với cấu trúc file/thư mục chuẩn, tinh gọn, khoa học.
 
 ---
 
-## 📁 Cấu trúc thư mục
+## 🔍 BÁO CÁO PHÂN TÍCH CẤU TRÚC WEBSITE THỰC TẾ
+
+### 1. Header (Đầu trang)
+- **Vị trí & Vai trò:** Nằm ở vị trí trên cùng của website, đóng vai trò nhận diện thương hiệu và gây ấn tượng đầu tiên cho người truy cập.
+- **Bố cục:** Chứa tiêu đề chính của trang web (`<h1>Creative Web Design</h1>`), dòng thông điệp giới thiệu (*Thiết kế website chuyên nghiệp - Hiện đại - Ấn tượng*) và nút kêu gọi hành động CTA (*Khám phá ngay*). Nền sử dụng hình ảnh sắc nét kèm hiệu ứng làm mờ (blur) để nổi bật nội dung chữ.
+
+### 2. Navigation Menu (Thanh điều hướng)
+- **Vị trí & Vai trò:** Đặt ngay sau Header (hoặc ghim cố định ở đầu trang), giúp người dùng dễ dàng chuyển đổi qua lại giữa các phần trong website.
+- **Bố cục:** Gồm 4 mục điều hướng cốt lõi:
+  - `Trang chủ`: Quay về trang chính.
+  - `Dịch vụ`: Điều hướng nhanh đến phần giới thiệu dịch vụ.
+  - `Blog`: Trang chia sẻ kiến thức và tin tức.
+  - `Liên hệ`: Kênh kết nối và thông tin hỗ trợ.
+- **Trải nghiệm UX:** Có hiệu ứng đổi màu mượt mà khi di chuột (hover).
+
+### 3. Content Section (Phần nội dung chính)
+- **Vị trí & Vai trò:** Phần trung tâm thể hiện giá trị và dịch vụ của doanh nghiệp.
+- **Bố cục:** Thiết kế theo dạng thẻ (Card Layout) sử dụng CSS Grid chia thành 3 cột cân đối:
+  - Thẻ 1: **Thiết kế Website** (Kèm ảnh minh họa & mô tả dịch vụ).
+  - Thẻ 2: **SEO & Marketing** (Kèm ảnh dashboard chỉ số & mô tả).
+  - Thẻ 3: **Hỗ trợ 24/7** (Kèm ảnh đội ngũ chăm sóc khách hàng & mô tả).
+- Sử dụng dấu chấm (`•`) để phân cấp và nhấn mạnh từng ý nội dung rõ ràng, mạch lạc.
+
+### 4. Footer (Chân trang)
+- **Vị trí & Vai trò:** Nằm ở đáy trang web, chốt lại thông tin bản quyền và kết nối đa kênh.
+- **Bố cục:** Bố trí 2 cột ngang đối xứng bằng Flexbox (`justify-content: space-between`):
+  - Cột trái: Bản quyền sở hữu trí tuệ (`• © 2025 Creative Web. All rights reserved.`).
+  - Cột phải: Kênh truyền thông xã hội (`• Theo dõi chúng tôi: • Facebook | Twitter | LinkedIn`).
+
+---
+
+## 📁 Tổ chức File và Thư mục Dự án
 
 ```text
-website-template-advanced/
-├── index.html
+GProject/
+├── index.html                     (Mã HTML bố cục trang)
+├── style.css                      (CSS định dạng giao diện)
 ├── css/
-│   ├── style.css
-├── images/
-│   ├── banner.jpg
-│   ├── service1.jpg
-│   ├── service2.jpg
-│   ├── service3.jpg
+│   └── style.css                  (CSS thư mục chuẩn)
+├── images/                        (Thư mục chứa tài nguyên ảnh)
+│   ├── banner.jpg                 (Ảnh nền Header)
+│   ├── service1.jpg               (Ảnh dịch vụ Thiết kế Web)
+│   ├── service2.jpg               (Ảnh dịch vụ SEO & Marketing)
+│   └── service3.jpg               (Ảnh dịch vụ Hỗ trợ 24/7)
+├── original-website-analysis.png  (Ảnh chụp màn hình trang web gốc đã phân tích)
+└── README.md                      (Báo cáo phân tích và tài liệu dự án)
 ```
-*(Đồng thời toàn bộ mã nguồn cũng được đặt tại thư mục gốc để thuận tiện truy cập trực tiếp).*
 
 ---
 
-## 📸 Kết quả hiển thị
-
-Giao diện hiển thị trực quan và đã được kiểm tra trên trình duyệt:
-- `advanced-template-result.png`
+## 📸 Ảnh chụp màn hình trang web phân tích
+Ảnh chụp màn hình trang web thực tế được lưu tại: `original-website-analysis.png`
