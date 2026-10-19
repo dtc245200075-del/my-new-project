@@ -3,38 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành thuộc tính flex-grow trong CSS</title>
+    <title>Thực hành thuộc tính flex-flow trong CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="badge">CSS Flexbox Shorthand</div>
+            <h1>BÀI THỰC HÀNH: THUỘC TÍNH FLEX-FLOW</h1>
+            <p class="subtitle">
+                <code>flex-flow</code> là thuộc tính viết tắt (shorthand) kết hợp giữa 
+                <code>flex-direction</code> và <code>flex-wrap</code>, chỉ áp dụng cho Flex Container.
+            </p>
+            <div class="syntax-banner">
+                <span class="syntax-label">CÚ PHÁP:</span>
+                <code>flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;;</code>
+            </div>
+        </header>
 
-    <h1>THỰC HÀNH THUỘC TÍNH CSS FLEX-GROW</h1>
+        <main class="main-content">
+            <!-- VÍ DỤ 1: row nowrap (Mặc định) -->
+            <section class="example-card">
+                <div class="card-header">
+                    <span class="example-tag tag-blue">Ví dụ 1</span>
+                    <h2>flex-flow: row nowrap <span class="badge-default">(Giá trị mặc định)</span></h2>
+                </div>
+                <p class="explanation">
+                    Sắp xếp các item nằm trên cùng <strong>1 hàng</strong> theo hướng đọc văn bản 
+                    (từ <strong>trái qua phải</strong>: 1 &rarr; 2 &rarr; 3) và không co giãn / xuống dòng khi hết khoảng trống.
+                </p>
+                <div class="code-preview">
+                    <code>.container-1 { display: flex; flex-flow: row nowrap; }</code>
+                </div>
 
-    <!-- VÍ DỤ CHÍNH THEO ĐỀ BÀI: 5 Flex Items, áp dụng flex-grow trên div thứ 2 -->
-    <div class="card">
-        <h2>1. Vùng chứa có 5 div: Áp dụng flex-grow trên div thứ 2 (Item 2)</h2>
-        <p class="syntax">div:nth-child(2) { flex-grow: 3; } | Các div khác có flex-grow: 1;</p>
-        <div class="container ex1">
-            <div class="item">Item 1</div>
-            <div class="item item-grow">Item 2 (flex-grow: 3)</div>
-            <div class="item">Item 3</div>
-            <div class="item">Item 4</div>
-            <div class="item">Item 5</div>
-        </div>
+                <!-- ĐÚNG CHUẨN HTML THEO ĐỀ BÀI -->
+                <div class="container-1">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+            </section>
+
+            <!-- VÍ DỤ 2: row-reverse nowrap -->
+            <section class="example-card">
+                <div class="card-header">
+                    <span class="example-tag tag-green">Ví dụ 2</span>
+                    <h2>flex-flow: row-reverse nowrap</h2>
+                </div>
+                <p class="explanation">
+                    Sắp xếp các item nằm trên cùng <strong>1 hàng</strong> nhưng theo hướng 
+                    <strong>ngược lại với hướng đọc văn bản</strong> (từ <strong>phải qua trái</strong>: 3 &larr; 2 &larr; 1) và không xuống dòng.
+                </p>
+                <div class="code-preview">
+                    <code>.container-2 { display: flex; flex-flow: row-reverse nowrap; }</code>
+                </div>
+
+                <!-- ĐÚNG CHUẨN HTML THEO ĐỀ BÀI -->
+                <div class="container-2">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+            </section>
+
+            <!-- KHU VỰC THỬ NGHIỆM TƯƠNG TÁC (INTERACTIVE PLAYGROUND) -->
+            <section class="example-card playground-card">
+                <div class="card-header">
+                    <span class="example-tag tag-purple">Trải nghiệm</span>
+                    <h2>Thử nghiệm các giá trị khác của flex-flow</h2>
+                </div>
+                <p class="explanation">
+                    Bấm chọn nhanh các tổ hợp giá trị để quan sát trực tiếp sự thay đổi hướng sắp xếp và cách xuống dòng:
+                </p>
+
+                <div class="control-panel">
+                    <button class="flow-btn active" onclick="applyFlow('row nowrap', this)">row nowrap</button>
+                    <button class="flow-btn" onclick="applyFlow('row-reverse nowrap', this)">row-reverse nowrap</button>
+                    <button class="flow-btn" onclick="applyFlow('column nowrap', this)">column nowrap</button>
+                    <button class="flow-btn" onclick="applyFlow('column-reverse nowrap', this)">column-reverse nowrap</button>
+                    <button class="flow-btn" onclick="applyFlow('row wrap', this)">row wrap</button>
+                    <button class="flow-btn" onclick="applyFlow('row-reverse wrap', this)">row-reverse wrap</button>
+                </div>
+
+                <div class="current-flow-box">
+                    Giá trị đang áp dụng: <strong id="active-flow-code">flex-flow: row nowrap;</strong>
+                </div>
+
+                <div class="interactive-container" id="demoContainer">
+                    <div class="box">Item 1</div>
+                    <div class="box">Item 2</div>
+                    <div class="box">Item 3</div>
+                    <div class="box">Item 4</div>
+                    <div class="box">Item 5</div>
+                </div>
+            </section>
+
+            <!-- BẢNG TỔNG KẾT KIẾN THỨC -->
+            <footer class="summary-card">
+                <h3>📌 Ghi nhớ quan trọng:</h3>
+                <ul>
+                    <li><strong>flex-flow</strong> là thuộc tính viết tắt gộp từ <code>flex-direction</code> và <code>flex-wrap</code>.</li>
+                    <li>Chỉ có hiệu lực khi khai báo ở <strong>phần tử cha (Flex Container)</strong> có <code>display: flex</code> hoặc <code>display: inline-flex</code>.</li>
+                    <li>Nếu bỏ qua một trong hai giá trị, giá trị còn lại sẽ tự động lấy mặc định (ví dụ <code>flex-flow: row</code> tương đương <code>row nowrap</code>).</li>
+                </ul>
+            </footer>
+        </main>
     </div>
 
-    <!-- VÍ DỤ 2: So sánh khi div 2 có flex-grow lớn vượt trội -->
-    <div class="card">
-        <h2>2. Phân bổ không gian với flex-grow: 4 cho div thứ 2</h2>
-        <p class="syntax">Item 2 { flex-grow: 4; } | Item 1, 3, 4, 5 { flex-grow: 1; }</p>
-        <div class="container ex2">
-            <div class="item">Item 1 (grow: 1)</div>
-            <div class="item item-grow-large">Item 2 (grow: 4)</div>
-            <div class="item">Item 3 (grow: 1)</div>
-            <div class="item">Item 4 (grow: 1)</div>
-            <div class="item">Item 5 (grow: 1)</div>
-        </div>
-    </div>
-
+    <script>
+        function applyFlow(value, btn) {
+            const container = document.getElementById('demoContainer');
+            const display = document.getElementById('active-flow-code');
+            
+            container.style.flexFlow = value;
+            display.textContent = 'flex-flow: ' + value + ';';
+            
+            document.querySelectorAll('.flow-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    </script>
 </body>
 </html>
