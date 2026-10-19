@@ -1,54 +1,54 @@
+/* Định dạng chung */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f6fa;
     margin: 0;
-    padding: 30px;
+    padding: 0;
+}
+
+/* Thanh điều hướng */
+.sticky-menu {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+.sticky-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    min-height: 80vh;
 }
 
-/* Cấu hình chung cho .card */
-.card {
-    width: 280px;
-    height: 150px;
-    padding: 20px;
-    border: 5px solid #3498db;
-    margin: 20px;
-    color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+.sticky-menu ul li {
+    margin: 0 15px;
 }
 
-.card h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
+.sticky-menu ul li a {
+    color: white;
+    text-decoration: none;
     font-size: 18px;
+    padding: 10px;
+    display: block;
 }
 
-.card p {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.5;
+.sticky-menu ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
 }
 
-/* Thẻ thứ nhất (:nth-child(1)) */
-.card:nth-child(1) {
-    box-sizing: content-box;
-    background-color: #2ecc71;
+/* Nội dung trang web */
+section {
+    padding: 100px 20px;
+    height: 100vh;
 }
 
-/* Thẻ thứ hai (:nth-child(2)) */
-.card:nth-child(2) {
-    box-sizing: border-box;
-    background-color: #f1c40f;
-    color: #2c3e50;
-}
-
-/* Thẻ thứ ba (:nth-child(3)) */
-.card:nth-child(3) {
-    box-sizing: border-box;
-    background-color: #e74c3c;
-}
+#home { background-color: #f4f4f4; }
+#about { background-color: #ddd; }
+#services { background-color: #bbb; }
+#contact { background-color: #999; }
