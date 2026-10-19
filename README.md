@@ -1,25 +1,33 @@
-# GProject - Form Đăng Ký Người Dùng (Bootstrap 5 Forms)
+# GProject - Tạo Landing Page với Bootstrap và Hình Ảnh
 
-Dự án thực hành xây dựng **Form Đăng Ký Người Dùng chuyên nghiệp** sử dụng thư viện **Bootstrap 5.3.0 Forms, Buttons & Text Elements**.
+Dự án thực hành xây dựng **Landing Page responsive kết hợp hình ảnh** sử dụng **Bootstrap 5.3.0 Containers, Grid System, Buttons và Images**.
 
-## 📌 Các trường thông tin trong Form đăng ký:
-1. **Họ và tên (`input type="text"` & `.form-control`)**: Nhập tên đầy đủ người dùng.
-2. **Email (`input type="email"` & `.form-control`)**: Nhập địa chỉ email, kèm hướng dẫn bảo mật bằng `.text-muted`.
-3. **Mật khẩu (`input type="password"` & `.form-control`)**: Nhập mật khẩu bí mật.
-4. **Xác nhận mật khẩu (`input type="password"` & `.form-control`)**: Kiểm tra lại mật khẩu.
-5. **Giới tính (`input type="radio"` & `.form-check-inline`)**: Chọn 1 trong các giới tính: Nam, Nữ, Khác.
-6. **Sở thích (`input type="checkbox"` & `.form-check-inline`)**: Chọn nhiều sở thích: Thể thao, Đọc sách, Âm nhạc, Du lịch.
-7. **Quốc gia (`select` & `.form-select`)**: Hộp chọn danh sách thả xuống (Việt Nam, Hoa Kỳ, Nhật Bản, v.v.).
-8. **Nút Submit (`button type="submit"` & `.btn.btn-primary`)**: Nút bấm gửi biểu mẫu đăng ký nổi bật.
+## 📌 Các thành phần chính của Landing Page:
+1. **Banner / Hero Section**:
+   - Sử dụng Bootstrap 5 (không dùng `.jumbotron` vì đã bị loại bỏ ở BS5) với các utility classes: `container`, `py-5`, `bg-*`, `text-center`.
+   - Hình ảnh banner nổi bật tối ưu responsive với lớp `img-fluid`, `rounded`, `shadow`.
+   - Nút kêu gọi hành động chính (CTA): `btn btn-primary btn-lg` (*Đăng Ký Ngay* / *Khám Phá Ngay*).
+2. **Giới thiệu (About / Intro Section)**:
+   - Một hàng `row` sử dụng Bootstrap Grid System:
+     - Cột 1: Hình ảnh sản phẩm / đội ngũ áp dụng lớp `img-fluid rounded shadow-sm`.
+     - Cột 2: Tiêu đề và đoạn văn bản mô tả chi tiết sản phẩm / dịch vụ.
+3. **Danh sách tính năng (Features Section)**:
+   - Một hàng `row` gồm 4 cột (`col-12 col-sm-6 col-md-3 text-center`):
+     - ⚡ **Tốc độ vượt trội**: Tối ưu hiệu năng tải trang nhanh chóng.
+     - 📱 **Đa nền tảng**: Tương thích mượt mà trên cả di động và máy tính.
+     - 🔒 **Bảo mật tối tân**: Bảo vệ dữ liệu người dùng tuyệt đối.
+     - 🛠️ **Hỗ trợ 24/7**: Đồng hành cùng khách hàng mọi lúc mọi nơi.
+4. **Nút Kêu Gọi Hành Động (CTA Section)**:
+   - Khu vực CTA tập trung lời kêu gọi đăng ký và các nút hành động kích thước lớn `btn-lg`.
+5. **Footer**:
+   - Thông tin bản quyền cuối trang (`bg-dark text-white text-center py-4`).
 
-## 📁 Danh sách tệp tin:
-- `index.html`: Giao diện form đăng ký thẩm mỹ cao, chuẩn Bootstrap 5.
-- `register-form-exact.html`: Mã nguồn form chuẩn từng dòng theo đúng đề bài mẫu.
+## 📁 Danh sách tệp tin trong dự án:
+- `index.html`: Landing page hoàn chỉnh với thiết kế cao cấp, hình ảnh độ phân giải cao và tính responsive.
+- `landing-images-exact.html`: Mã nguồn chuẩn từng dòng theo cấu trúc gợi ý trong bài học.
+- `images/hero.jpg`: Hình ảnh banner hero công nghệ.
+- `images/intro.jpg`: Hình ảnh giới thiệu sản phẩm / đội ngũ.
 - `style.css`: Quy tắc định dạng CSS tùy biến giao diện.
-- `bootstrap-form-sample.png`: Ảnh chụp minh chứng kết quả giao diện form đăng ký chuẩn đề bài.
-- `bootstrap-form-desktop.png`: Ảnh chụp giao diện Desktop.
-- `bootstrap-form-mobile.png`: Ảnh chụp giao diện Mobile responsive.
-
-## 🚀 Tính năng Responsive:
-- **Desktop (màn hình lớn):** Form được căn giữa trang web bằng Bootstrap Grid (`col-md-8 col-lg-6 mx-auto`) với độ rộng vừa vặn, tinh tế.
-- **Mobile (màn hình nhỏ):** Form tự động co giãn (`col-12`) vừa vặn màn hình điện thoại, dễ thao tác chạm bấm.
+- `landing-images-desktop.png`: Ảnh chụp giao diện Desktop.
+- `landing-images-sample.png`: Ảnh chụp giao diện mẫu chuẩn đề bài.
+- `landing-images-mobile.png`: Ảnh chụp giao diện Mobile responsive.

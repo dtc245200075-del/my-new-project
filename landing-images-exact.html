@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page với Bootstrap và Hình Ảnh</title>
+    <!-- Bootstrap 5 CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- 1. Banner / Hero Section (Không dùng .jumbotron vì dùng Bootstrap 5) -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Chào mừng đến với Landing Page</h1>
+            <p class="lead">Khám phá giải pháp công nghệ hiện đại và đột phá cho tương lai.</p>
+            <div class="my-4">
+                <img src="images/hero.jpg" alt="Banner Image" class="img-fluid rounded shadow" style="max-height: 400px;">
+            </div>
+            <a href="#cta" class="btn btn-light btn-lg">Khám phá ngay</a>
+        </div>
+    </header>
+
+    <!-- 2. Giới thiệu: Row chứa hình ảnh + đoạn mô tả -->
+    <section class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="images/intro.jpg" alt="Giới thiệu sản phẩm" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-6">
+                <h2>Về Chúng Tôi</h2>
+                <p>Chúng tôi cung cấp các sản phẩm và dịch vụ công nghệ chất lượng cao, giúp tối ưu hóa hiệu quả hoạt động và mang lại trải nghiệm tốt nhất cho người dùng.</p>
+                <p>Sản phẩm được thiết kế với giao diện thân thiện, bảo mật cao và tương thích trên mọi thiết bị.</p>
+                <a href="#features" class="btn btn-outline-primary">Xem thêm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Danh sách tính năng: Row gồm 4 cột (icon + tiêu đề + mô tả) -->
+    <section id="features" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Danh Sách Tính Năng</h2>
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="p-3 bg-white rounded shadow-sm h-100">
+                        <div class="fs-1 mb-2">⚡</div>
+                        <h4>Tốc độ cao</h4>
+                        <p class="text-muted">Tối ưu hiệu năng tải trang nhanh chóng.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="p-3 bg-white rounded shadow-sm h-100">
+                        <div class="fs-1 mb-2">📱</div>
+                        <h4>Responsive</h4>
+                        <p class="text-muted">Hiển thị mượt mà trên mobile và desktop.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="p-3 bg-white rounded shadow-sm h-100">
+                        <div class="fs-1 mb-2">🔒</div>
+                        <h4>Bảo mật</h4>
+                        <p class="text-muted">Bảo vệ dữ liệu người dùng tuyệt đối.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="p-3 bg-white rounded shadow-sm h-100">
+                        <div class="fs-1 mb-2">🛠️</div>
+                        <h4>Hỗ trợ 24/7</h4>
+                        <p class="text-muted">Đồng hành cùng khách hàng mọi lúc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Nút Kêu Gọi Hành Động (CTA Section) -->
+    <section id="cta" class="container py-5 text-center">
+        <h2>Bắt đầu cùng chúng tôi ngay hôm nay!</h2>
+        <p class="text-muted">Đăng ký tài khoản để nhận những ưu đãi và dịch vụ hấp dẫn nhất.</p>
+        <a href="#" class="btn btn-primary btn-lg mt-2">Đăng ký ngay</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2026 Landing Page. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
