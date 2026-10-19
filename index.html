@@ -3,52 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành thuộc tính Grid Row</title>
+    <title>Thực hành thuộc tính grid-gap</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>THỰC HÀNH THUỘC TÍNH GRID-ROW</h1>
+    <h1>THỰC HÀNH THUỘC TÍNH CSS GRID-GAP</h1>
 
-    <!-- 1. Cấu trúc bài tập chính: grid-row: 1 / 3 -->
+    <!-- VÍ DỤ 1 -->
     <div class="card">
-        <h2>1. Trường hợp chính: Ô 1 chiếm 2 hàng đầu tiên (grid-row: 1 / 3)</h2>
-        <p class="desc">Cú pháp: <code>grid-row: 1 / 3;</code> (Bắt đầu từ đường kẻ 1, kết thúc tại đường kẻ 3)</p>
-        <div class="grid-container">
-            <div class="item item1">Ô 1 (grid-row: 1 / 3)</div>
-            <div class="item">Ô 2</div>
-            <div class="item">Ô 3</div>
-            <div class="item">Ô 4</div>
-            <div class="item">Ô 5</div>
-            <div class="item">Ô 6</div>
+        <h2>Ví dụ 1: Thiết lập khoảng cách hàng và cột bằng nhau (grid-gap: 20px)</h2>
+        <p class="syntax">grid-template-columns: repeat(2, 1fr); grid-gap: 20px; (Tương đương row-gap: 20px, col-gap: 20px)</p>
+        <div class="grid-container-1">
+            <div>Ô 1</div>
+            <div>Ô 2</div>
+            <div>Ô 3</div>
+            <div>Ô 4</div>
         </div>
     </div>
 
-    <!-- 2. Thử nghiệm thay đổi: grid-row: 2 / 4 -->
+    <!-- VÍ DỤ 2 -->
     <div class="card">
-        <h2>2. Thử nghiệm: grid-row: 2 / 4 (Bắt đầu từ hàng 2 đến hàng 4)</h2>
-        <p class="desc">Cú pháp: <code>grid-row: 2 / 4;</code></p>
-        <div class="grid-container">
-            <div class="item item-row-2-4">Ô 1 (grid-row: 2 / 4)</div>
-            <div class="item">Ô 2</div>
-            <div class="item">Ô 3</div>
-            <div class="item">Ô 4</div>
-            <div class="item">Ô 5</div>
-            <div class="item">Ô 6</div>
-        </div>
-    </div>
-
-    <!-- 3. Thử nghiệm thay đổi: grid-row: span 2 -->
-    <div class="card">
-        <h2>3. Thử nghiệm: grid-row: span 2 (Kéo dài chiếm 2 hàng từ vị trí mặc định)</h2>
-        <p class="desc">Cú pháp: <code>grid-row: span 2;</code></p>
-        <div class="grid-container">
-            <div class="item item-span-2">Ô 1 (grid-row: span 2)</div>
-            <div class="item">Ô 2</div>
-            <div class="item">Ô 3</div>
-            <div class="item">Ô 4</div>
-            <div class="item">Ô 5</div>
-            <div class="item">Ô 6</div>
+        <h2>Ví dụ 2: Thiết lập khoảng cách hàng và cột khác nhau (grid-gap: 30px 10px)</h2>
+        <p class="syntax">grid-template-columns: repeat(3, 1fr); grid-gap: 30px 10px; (Khoảng cách hàng: 30px, khoảng cách cột: 10px)</p>
+        <div class="grid-container-2">
+            <div>Ô 1</div>
+            <div>Ô 2</div>
+            <div>Ô 3</div>
+            <div>Ô 4</div>
+            <div>Ô 5</div>
+            <div>Ô 6</div>
         </div>
     </div>
 
