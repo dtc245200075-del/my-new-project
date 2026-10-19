@@ -1,33 +1,37 @@
-# GProject - Tạo Landing Page với Bootstrap và Hình Ảnh
+# GProject - Layout Bootstrap (Online Shopping Mall)
 
-Dự án thực hành xây dựng **Landing Page responsive kết hợp hình ảnh** sử dụng **Bootstrap 5.3.0 Containers, Grid System, Buttons và Images**.
+Dự án thực hành sử dụng các thành phần của **Bootstrap 3.3.7** để xây dựng bố cục trang web thương mại điện tử **Online Shopping Mall**.
 
-## 📌 Các thành phần chính của Landing Page:
-1. **Banner / Hero Section**:
-   - Sử dụng Bootstrap 5 (không dùng `.jumbotron` vì đã bị loại bỏ ở BS5) với các utility classes: `container`, `py-5`, `bg-*`, `text-center`.
-   - Hình ảnh banner nổi bật tối ưu responsive với lớp `img-fluid`, `rounded`, `shadow`.
-   - Nút kêu gọi hành động chính (CTA): `btn btn-primary btn-lg` (*Đăng Ký Ngay* / *Khám Phá Ngay*).
-2. **Giới thiệu (About / Intro Section)**:
-   - Một hàng `row` sử dụng Bootstrap Grid System:
-     - Cột 1: Hình ảnh sản phẩm / đội ngũ áp dụng lớp `img-fluid rounded shadow-sm`.
-     - Cột 2: Tiêu đề và đoạn văn bản mô tả chi tiết sản phẩm / dịch vụ.
-3. **Danh sách tính năng (Features Section)**:
-   - Một hàng `row` gồm 4 cột (`col-12 col-sm-6 col-md-3 text-center`):
-     - ⚡ **Tốc độ vượt trội**: Tối ưu hiệu năng tải trang nhanh chóng.
-     - 📱 **Đa nền tảng**: Tương thích mượt mà trên cả di động và máy tính.
-     - 🔒 **Bảo mật tối tân**: Bảo vệ dữ liệu người dùng tuyệt đối.
-     - 🛠️ **Hỗ trợ 24/7**: Đồng hành cùng khách hàng mọi lúc mọi nơi.
-4. **Nút Kêu Gọi Hành Động (CTA Section)**:
-   - Khu vực CTA tập trung lời kêu gọi đăng ký và các nút hành động kích thước lớn `btn-lg`.
-5. **Footer**:
-   - Thông tin bản quyền cuối trang (`bg-dark text-white text-center py-4`).
+## 📌 Các bước và thành phần đã thực hiện:
+1. **Khung bố cục chung (`layout.html`)**:
+   - Sử dụng `.container` với các phần: `header.row`, `nav.navbar.navbar-inverse`, thân trang gồm `article.col-sm-9` và `aside.col-sm-3`, cùng `footer.panel.panel-default`.
+2. **Thiết kế Header**:
+   - Khối `.shopping-mall` với tiêu đề `h1` kiểu chữ Impact, phụ đề `h5`.
+   - Hình ảnh quà tặng đẩy sang phải với lớp `.pull-right`.
+3. **Thanh điều hướng Menu (`nav.navbar-inverse`)**:
+   - Tích hợp biểu tượng **Bootstrap Glyphicons**:
+     - 🏠 Trang chủ (`glyphicon-home`)
+     - 📋 Giới thiệu (`glyphicon-list-alt`)
+     - 📞 Liên hệ (`glyphicon-earphone`)
+     - ✉️ Góp ý (`glyphicon-envelope`)
+     - ❓ Hỏi đáp (`glyphicon-question-sign`)
+     - 👤 Tài khoản (`glyphicon-user`) kèm Dropdown menu.
+4. **Khu vực nội dung chính (`article.col-sm-9`)**:
+   - Chia lưới mỗi hàng 3 sản phẩm, mỗi sản phẩm chiếm 4 cột (`col-sm-4.poly-prod`).
+   - Cấu trúc thẻ sản phẩm: `.panel-heading` (Tên sản phẩm), `.panel-body` (Hình ảnh), `.panel-footer` (Đơn giá).
+5. **Khu vực thanh bên (`aside.col-sm-3`)**:
+   - Giỏ hàng (`.poly-cart`): Hình ảnh 5 cột, thông tin giỏ hàng 7 cột.
+   - Ô tìm kiếm: Ô nhập từ khóa với `.form-control`.
+   - Danh mục chủng loại hàng: Panel kết hợp `.list-group`.
+6. **Footer**:
+   - Hiển thị thông tin bản quyền: `CodeGym © 2017`.
 
 ## 📁 Danh sách tệp tin trong dự án:
-- `index.html`: Landing page hoàn chỉnh với thiết kế cao cấp, hình ảnh độ phân giải cao và tính responsive.
-- `landing-images-exact.html`: Mã nguồn chuẩn từng dòng theo cấu trúc gợi ý trong bài học.
-- `images/hero.jpg`: Hình ảnh banner hero công nghệ.
-- `images/intro.jpg`: Hình ảnh giới thiệu sản phẩm / đội ngũ.
-- `style.css`: Quy tắc định dạng CSS tùy biến giao diện.
-- `landing-images-desktop.png`: Ảnh chụp giao diện Desktop.
-- `landing-images-sample.png`: Ảnh chụp giao diện mẫu chuẩn đề bài.
-- `landing-images-mobile.png`: Ảnh chụp giao diện Mobile responsive.
+- `layout.html`: Mã nguồn chính của bài thực hành theo yêu cầu đề bài.
+- `index.html`: Bản sao đồng bộ của `layout.html` giúp xem trực tiếp trên GitHub Pages / Root.
+- `poly.css`: Các lớp định dạng CSS tùy biến (`header`, `.shopping-mall`, `.poly-cart`, `.poly-prod`).
+- `images/`:
+  - `header-object.png`: Hình ảnh banner header.
+  - `shoppingcart.gif`: Biểu tượng giỏ hàng.
+  - `computer.png`: Hình ảnh sản phẩm.
+- `layout-result.png`: Ảnh chụp minh chứng kết quả chạy trên trình duyệt.
