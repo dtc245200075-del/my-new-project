@@ -3,82 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bố cục trang web bằng thẻ DIV và CSS Responsive</title>
+    <title>Responsive Image Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="main">
-        <!-- 1. Phần tiêu đề / Banner -->
-        <div id="head">
-            <h1>LOGO &amp; BANNER WEBSITE</h1>
-            <p>Hệ thống Đào tạo Lập trình Hiện đại - CodeGym</p>
-        </div>
+    <h2 style="text-align: center; margin-top: 20px;">Bộ Sưu Tập Hình Ảnh Responsive</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 25px;">Thay đổi kích thước trình duyệt để xem hiệu ứng Responsive (4 ảnh &gt; 700px, 2 ảnh &lt; 700px, 1 ảnh &lt; 500px)</p>
 
-        <!-- 2. Phần Menu liên kết đầu trang -->
-        <div id="head-link">
-            <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Sinh viên</a></li>
-                <li><a href="#">Khóa học</a></li>
-                <li><a href="#">Tin tức</a></li>
-                <li><a href="#">Tuyển dụng</a></li>
-                <li><a href="#">Liên hệ</a></li>
-            </ul>
-        </div>
-
-        <!-- 3. Khu vực thân trang chứa 3 cột: Left, Content, Right -->
-        <div class="container-body">
-            <!-- Cột trái -->
-            <div id="left">
-                <h3>Danh mục liên kết</h3>
-                <ul>
-                    <li><a href="#">Tin tức công nghệ</a></li>
-                    <li><a href="#">Lịch thi chứng chỉ</a></li>
-                    <li><a href="#">Thời khóa biểu</a></li>
-                    <li><a href="#">Thư viện trực tuyến</a></li>
-                    <li><a href="#">Diễn đàn sinh viên</a></li>
-                </ul>
-            </div>
-
-            <!-- Cột nội dung chính ở giữa -->
-            <div id="content">
-                <h2>Nội dung chính của trang</h2>
-                
-                <div class="article-box">
-                    <h3>Hot News: Bố cục Responsive với DIV và CSS</h3>
-                    <p>
-                        Sử dụng thẻ <code>&lt;div&gt;</code> kết hợp với các kỹ thuật dàn trang CSS hiện đại như Flexbox và Media Queries giúp trang web tự động thích ứng với nhiều kích thước màn hình khác nhau từ máy tính để bàn (Desktop), máy tính bảng (Tablet) cho đến điện thoại thông minh (Mobile).
-                    </p>
-                </div>
-
-                <div class="article-box">
-                    <h3>Photo Slide &amp; Hoạt động ngoại khóa</h3>
-                    <p>
-                        Khi bạn thay đổi độ rộng cửa sổ trình duyệt (thu nhỏ lại dưới 768px), các cột bên trái (left), nội dung chính (content) và cột bên phải (right) sẽ tự động xếp chồng theo chiều dọc một cách linh hoạt mà không bị vỡ bố cục hay tràn màn hình.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Cột phải -->
-            <div id="right">
-                <h3>Thông tin phụ</h3>
-                <div class="widget">
-                    <h4>Lịch sự kiện</h4>
-                    <p>Hội thảo hướng nghiệp CNTT vào thứ Bảy tuần này.</p>
-                </div>
-                <div class="widget">
-                    <h4>Biểu đồ thống kê</h4>
-                    <p>Hơn 98% học viên có việc làm sau khi tốt nghiệp.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. Chân trang -->
-        <div id="footer">
-            <p>&copy; 2026 Bản quyền thuộc về CodeGym Vietnam. Mọi quyền được bảo lưu.</p>
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop" alt="Phong cảnh thiên nhiên núi rừng" width="600" height="400">
+            </a>
+            <div class="desc">Thiên nhiên núi non hùng vĩ</div>
         </div>
     </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://images.unsplash.com/photo-1511497584788-87676104235f?w=600&auto=format&fit=crop">
+                <img src="https://images.unsplash.com/photo-1511497584788-87676104235f?w=600&auto=format&fit=crop" alt="Rừng cây xanh ngát" width="600" height="400">
+            </a>
+            <div class="desc">Rừng cây nhiệt đới trong lành</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&auto=format&fit=crop">
+                <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&auto=format&fit=crop" alt="Cực quang phương bắc lung linh" width="600" height="400">
+            </a>
+            <div class="desc">Cực quang phương Bắc huyền ảo</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop" alt="Dãy núi tuyết tráng lệ" width="600" height="400">
+            </a>
+            <div class="desc">Đỉnh núi phủ tuyết trắng xóa</div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
 
 </body>
 </html>
