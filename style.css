@@ -1,30 +1,79 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.container {
-    width: 100%;
-    overflow: hidden;
+body {
+    font-family: Arial, sans-serif;
 }
 
-.left-column {
-    width: 50%;
-    float: left;
-    background-color: lightgray;
-    padding: 20px;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
+    color: white;
+    position: relative;
 }
 
-.right-column {
-    width: 50%;
-    float: right;
-    background-color: lightgreen;
-    padding: 20px;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.overflow-box {
-    width: 300px;
-    height: 100px;
-    background-color: lightcoral;
-    padding: 10px;
-    overflow: auto;
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ✅ Responsive cho Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 12px;
+        margin: 0;
+        border-top: 1px solid #444;
+    }
+
+    .menu-icon {
+        display: block;
+    }
 }
