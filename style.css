@@ -1,16 +1,31 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 40px;
-    background-color: #f8fafc;
+    margin: 20px;
 }
 
-.overflow-box {
-    width: 300px;
-    height: 100px;
-    background-color: lightgray;
-    padding: 10px;
-    overflow: auto;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    line-height: 1.5;
+.container {
+    width: 100%;
+}
+
+.left-column {
+    width: 60%;
+    float: left;
+    background-color: lightblue;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.right-column {
+    width: 38%;
+    float: right;
+    background-color: lightgreen;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Xử lý float */
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
 }
