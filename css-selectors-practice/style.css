@@ -1,0 +1,126 @@
+/* 1. Element Selector: Đổi màu nền trang và font chữ toàn trang */
+body {
+    background-color: #f0f4f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* 2. Grouping Selector: Định dạng chung cho các tiêu đề */
+h1, h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* 3. Element Selector & ID Selector: Căn giữa tiêu đề h1 */
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#main-heading {
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 12px;
+}
+
+/* 4. ID Selector: Khung chứa chính */
+#container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 5. Class Selector & ID Selector: Đoạn văn mô tả bản thân */
+.description {
+    font-size: 16px;
+    color: #4b5563;
+    text-align: justify;
+    padding: 12px;
+    background-color: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    border-radius: 4px;
+}
+
+#about-me {
+    margin-bottom: 25px;
+}
+
+.sub-heading {
+    color: #2563eb;
+    margin-top: 25px;
+}
+
+/* 6. Class / Element Selector: Định dạng danh sách với màu sắc khác nhau */
+ul {
+    list-style-type: square;
+    padding-left: 25px;
+    margin-bottom: 30px;
+}
+
+.hobby-item {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.hobby-reading {
+    color: #0d9488; /* Màu xanh mòng két */
+    background-color: #ccfbf1;
+}
+
+.hobby-music {
+    color: #7c3aed; /* Màu tím */
+    background-color: #ede9fe;
+}
+
+.hobby-travel {
+    color: #ea580c; /* Màu cam */
+    background-color: #ffedd5;
+}
+
+/* 7. Pseudo-class Selector: Hiệu ứng hover cho mục sở thích */
+.hobby-item:hover {
+    transform: translateX(5px);
+    cursor: pointer;
+}
+
+/* 8. Class Selector: Khu vực nút bấm */
+.action-section {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.custom-button {
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* 9. Pseudo-classes Selector: Hiệu ứng hover và active cho nút bấm */
+.custom-button:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 6px 12px rgba(29, 78, 216, 0.35);
+    transform: translateY(-2px);
+}
+
+.custom-button:active {
+    background-color: #1e40af;
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+}
