@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Landing Page - MyBrand</title>
+    <title>Giới Thiệu Công Ty - Doanh Nghiệp</title>
     <!-- Bootstrap 5.3.0 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Google Fonts -->
@@ -17,10 +17,10 @@
     <!-- ========================================================
          BƯỚC 2.2: NAVBAR (Thanh điều hướng)
          ======================================================== -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="#">
-                <span class="brand-badge text-primary">&#9733;</span> MyBrand
+            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">
+                <span class="brand-icon">&#9670;</span> Doanh Nghiệp
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,16 +28,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active px-3" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active fw-semibold px-3" aria-current="page" href="#">Trang Chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="#about">About</a>
+                        <a class="nav-link px-3" href="#about">Về Chúng Tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="#services">Services</a>
+                        <a class="nav-link px-3" href="#services">Dịch Vụ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="#contact">Contact</a>
+                        <a class="nav-link px-3" href="#contact">Liên Hệ</a>
                     </li>
                 </ul>
             </div>
@@ -47,94 +47,140 @@
     <!-- ========================================================
          BƯỚC 2.3: HERO SECTION
          ======================================================== -->
-    <header class="bg-primary text-white text-center py-5 hero-banner">
+    <header class="bg-primary text-white text-center py-5 hero-section">
         <div class="container py-4">
             <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-semibold mb-3 shadow-sm">
-                Đổi mới & Phát triển bền vững
+                Giải pháp công nghệ số 2024
             </span>
-            <h1 class="display-4 fw-bold mb-3">Chào mừng đến với MyBrand</h1>
+            <h1 class="display-4 fw-bold mb-3">Chào mừng đến với Công Ty Chúng Tôi</h1>
             <p class="lead mb-4 mx-auto" style="max-width: 650px;">
-                Giải pháp số 1 cho doanh nghiệp của bạn
+                Chúng tôi cung cấp các giải pháp chuyên nghiệp cho doanh nghiệp của bạn
             </p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#services" class="btn btn-light btn-lg px-4 fw-semibold shadow-sm">Khám phá ngay</a>
-                <a href="#contact" class="btn btn-outline-light btn-lg px-4 fw-semibold">Liên hệ tư vấn</a>
+                <a href="#services" class="btn btn-light btn-lg px-4 fw-semibold shadow-sm">Tìm Hiểu Ngay</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg px-4 fw-semibold">Liên Hệ Tư Vấn</a>
             </div>
         </div>
     </header>
 
     <!-- ========================================================
-         BƯỚC 2.4: GRID SYSTEM - SERVICES (Danh sách dịch vụ)
+         BƯỚC 2.4: ABOUT SECTION (Về chúng tôi)
          ======================================================== -->
-    <section id="services" class="container py-5">
-        <div class="text-center mb-5">
-            <span class="text-primary fw-bold text-uppercase small tracking-wide">Giải pháp toàn diện</span>
-            <h2 class="fw-bold mt-1">Dịch vụ của chúng tôi</h2>
-            <div class="divider mx-auto"></div>
+    <section id="about" class="container py-5">
+        <div class="text-center mb-4">
+            <span class="text-primary fw-bold text-uppercase small tracking-wide">Giới thiệu tổng quan</span>
+            <h2 class="fw-bold mt-1">Về Chúng Tôi</h2>
+            <div class="divider mx-auto mb-3"></div>
         </div>
-
-        <div class="row g-4">
-            <!-- Dịch vụ 1 -->
-            <div class="col-md-4 text-center">
-                <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
-                    <div class="card-icon bg-primary-subtle text-primary rounded-circle mx-auto mb-3">
-                        🌐
-                    </div>
-                    <h3 class="h4 fw-bold mb-2">Thiết kế Web</h3>
-                    <p class="text-muted">
-                        Dịch vụ thiết kế web chuyên nghiệp, giao diện responsive hiện đại, tối ưu trải nghiệm người dùng trên mọi thiết bị.
-                    </p>
-                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto align-self-center px-3 rounded-pill">Xem thêm &rarr;</a>
+        <p class="text-center lead text-muted mx-auto" style="max-width: 780px;">
+            Công ty chúng tôi chuyên cung cấp các dịch vụ công nghệ, thiết kế website và tiếp thị kỹ thuật số.
+        </p>
+        <div class="row g-4 mt-3 text-center">
+            <div class="col-md-4">
+                <div class="about-stat p-3 bg-light rounded-3 border">
+                    <h3 class="fw-bold text-primary mb-1">500+</h3>
+                    <p class="text-secondary mb-0">Dự án hoàn thành</p>
                 </div>
             </div>
-
-            <!-- Dịch vụ 2 -->
-            <div class="col-md-4 text-center">
-                <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
-                    <div class="card-icon bg-success-subtle text-success rounded-circle mx-auto mb-3">
-                        🚀
-                    </div>
-                    <h3 class="h4 fw-bold mb-2">SEO & Marketing</h3>
-                    <p class="text-muted">
-                        Nâng cao thương hiệu của bạn, tối ưu hóa công cụ tìm kiếm và chiến lược tiếp thị số giúp gia tăng doanh số vượt trội.
-                    </p>
-                    <a href="#" class="btn btn-outline-success btn-sm mt-auto align-self-center px-3 rounded-pill">Xem thêm &rarr;</a>
+            <div class="col-md-4">
+                <div class="about-stat p-3 bg-light rounded-3 border">
+                    <h3 class="fw-bold text-primary mb-1">98%</h3>
+                    <p class="text-secondary mb-0">Khách hàng hài lòng</p>
                 </div>
             </div>
-
-            <!-- Dịch vụ 3 -->
-            <div class="col-md-4 text-center">
-                <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
-                    <div class="card-icon bg-warning-subtle text-warning-emphasis rounded-circle mx-auto mb-3">
-                        💬
-                    </div>
-                    <h3 class="h4 fw-bold mb-2">Hỗ trợ 24/7</h3>
-                    <p class="text-muted">
-                        Chúng tôi luôn sẵn sàng hỗ trợ bạn bất kỳ lúc nào với đội ngũ chuyên viên tận tâm, xử lý yêu cầu nhanh chóng.
-                    </p>
-                    <a href="#" class="btn btn-outline-warning btn-sm mt-auto align-self-center px-3 rounded-pill">Xem thêm &rarr;</a>
+            <div class="col-md-4">
+                <div class="about-stat p-3 bg-light rounded-3 border">
+                    <h3 class="fw-bold text-primary mb-1">24/7</h3>
+                    <p class="text-secondary mb-0">Hỗ trợ kỹ thuật</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- SECTION GIỚI THIỆU THÊM (ABOUT) -->
-    <section id="about" class="bg-light py-5">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-3">Về chúng tôi</h2>
-            <p class="text-muted mx-auto" style="max-width: 700px;">
-                MyBrand đồng hành cùng hơn 500+ doanh nghiệp vừa và nhỏ trong việc chuyển đổi số, xây dựng website chuẩn SEO và phát triển chiến lược nhận diện thương hiệu số hàng đầu.
-            </p>
         </div>
     </section>
 
     <!-- ========================================================
-         BƯỚC 2.5: FOOTER (Chân trang)
+         BƯỚC 2.5: SERVICES SECTION (Dịch vụ)
+         ======================================================== -->
+    <section id="services" class="bg-light py-5">
+        <div class="container py-2">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase small tracking-wide">Danh mục giải pháp</span>
+                <h2 class="fw-bold mt-1">Dịch vụ của chúng tôi</h2>
+                <div class="divider mx-auto"></div>
+            </div>
+            <div class="row g-4">
+                <!-- Dịch vụ 1 -->
+                <div class="col-md-4 text-center">
+                    <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
+                        <div class="service-icon bg-primary-subtle text-primary rounded-circle mx-auto mb-3">
+                            💻
+                        </div>
+                        <h3 class="h4 fw-bold mb-2">Thiết kế Website</h3>
+                        <p class="text-muted">Thiết kế giao diện chuyên nghiệp và tối ưu hóa trải nghiệm người dùng.</p>
+                        <a href="#contact" class="btn btn-outline-primary btn-sm mt-auto align-self-center px-3 rounded-pill">Đăng ký dịch vụ</a>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ 2 -->
+                <div class="col-md-4 text-center">
+                    <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
+                        <div class="service-icon bg-success-subtle text-success rounded-circle mx-auto mb-3">
+                            📈
+                        </div>
+                        <h3 class="h4 fw-bold mb-2">Marketing Online</h3>
+                        <p class="text-muted">Giải pháp tiếp thị số giúp doanh nghiệp của bạn phát triển.</p>
+                        <a href="#contact" class="btn btn-outline-success btn-sm mt-auto align-self-center px-3 rounded-pill">Đăng ký dịch vụ</a>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ 3 -->
+                <div class="col-md-4 text-center">
+                    <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
+                        <div class="service-icon bg-warning-subtle text-warning-emphasis rounded-circle mx-auto mb-3">
+                            🎧
+                        </div>
+                        <h3 class="h4 fw-bold mb-2">Hỗ trợ khách hàng</h3>
+                        <p class="text-muted">Chúng tôi cam kết hỗ trợ khách hàng 24/7.</p>
+                        <a href="#contact" class="btn btn-outline-warning btn-sm mt-auto align-self-center px-3 rounded-pill">Đăng ký dịch vụ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         BƯỚC 2.6: CONTACT SECTION (Liên hệ)
+         ======================================================== -->
+    <section id="contact" class="container py-5 text-center">
+        <div class="mb-4">
+            <span class="text-primary fw-bold text-uppercase small tracking-wide">Kết nối nhanh chóng</span>
+            <h2 class="fw-bold mt-1">Liên hệ với chúng tôi</h2>
+            <div class="divider mx-auto mb-3"></div>
+        </div>
+        <div class="row justify-content-center g-3">
+            <div class="col-md-4">
+                <div class="contact-box p-3 bg-white border rounded-3 shadow-sm">
+                    <div class="fs-4 text-primary mb-1">✉️</div>
+                    <p class="fw-bold mb-0">Email:</p>
+                    <a href="mailto:contact@company.com" class="text-decoration-none text-muted">contact@company.com</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-box p-3 bg-white border rounded-3 shadow-sm">
+                    <div class="fs-4 text-danger mb-1">📞</div>
+                    <p class="fw-bold mb-0">Hotline:</p>
+                    <a href="tel:0988123456" class="text-decoration-none text-muted fw-bold">0988 123 456</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         BƯỚC 2.7: FOOTER (Chân trang)
          ======================================================== -->
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
-            <p class="mb-1">&copy; 2024 MyBrand. All rights reserved.</p>
-            <small class="text-secondary">Thiết kế chuẩn Bootstrap 5 &bull; Landing Page Responsive</small>
+            <p class="mb-1">&copy; 2024 Công Ty Chúng Tôi. All rights reserved.</p>
+            <small class="text-secondary">Trang giới thiệu doanh nghiệp xây dựng với Bootstrap 5</small>
         </div>
     </footer>
 
