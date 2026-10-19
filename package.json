@@ -1,9 +1,12 @@
 {
   "name": "sass-learning-project",
   "version": "1.0.0",
-  "description": "Thực hành biên dịch SCSS sang CSS bằng SASS CLI và npm",
+  "description": "Thực hành chuyển đổi CSS truyền thống sang cấu trúc SASS chuẩn (abstracts, base, layout, components)",
   "main": "index.html",
   "scripts": {
+    "build": "sass main.scss main.css && sass styles.scss styles.css && sass scss:css --no-source-map",
+    "build-main": "sass main.scss main.css",
+    "watch-main": "sass main.scss main.css --watch",
     "build-single": "sass styles.scss styles.css",
     "watch-single": "sass styles.scss styles.css --watch",
     "build-css": "sass scss:css --no-source-map",
@@ -13,7 +16,8 @@
     "sass",
     "scss",
     "css",
-    "compiler"
+    "compiler",
+    "modular-sass"
   ],
   "author": "Trieu Phuong Giang",
   "license": "ISC",

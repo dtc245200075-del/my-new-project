@@ -1,76 +1,144 @@
-# GProject - Thực Hành Cài Đặt Node.js, npm & Biên Dịch SASS (SCSS sang CSS)
+# GProject - Chuyển Đổi CSS Truyền Thống Sang SASS Chuẩn
 
-Dự án hướng dẫn chi tiết và thực hành toàn diện quy trình kiểm tra, cài đặt **Node.js**, **npm**, **SASS CLI** và biên dịch tệp **SCSS sang CSS** theo chuẩn chuyên nghiệp.
-
----
-
-## 📌 1. Kết quả kiểm tra môi trường trên hệ thống
-
-| Công cụ | Lệnh kiểm tra | Phiên bản đã cài đặt | Trạng thái |
-| :--- | :--- | :--- | :--- |
-| **Node.js** | `node -v` | **v20.18.0** | ✅ Đã cài đặt & cấu hình PATH |
-| **npm** | `npm -v` | **10.8.2** | ✅ Hoạt động sẵn sàng |
-| **SASS CLI** | `sass --version` | **1.99.0** (Dart Sass) | ✅ Cài đặt toàn cục qua `npm install -g sass` |
+Dự án thực hành chuẩn hóa mã nguồn CSS sang kiến trúc **Modular SASS/SCSS** chuyên nghiệp theo cấu trúc thư mục 7-1 pattern tinh gọn: `abstracts`, `base`, `layout`, và `components`.
 
 ---
 
-## 📂 2. Cấu trúc tệp SCSS và CSS trong dự án
+## 🎯 1. So Sánh Trước & Sau Khi Chuẩn Hóa SASS
+
+### 🔹 File CSS ban đầu (`styles.css`):
+```css
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #f4f4f4;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.button {
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+```
+
+### 🔹 Cấu trúc SASS chuẩn hóa:
+Tách thành các module riêng biệt giúp dễ bảo trì, mở rộng và tái sử dụng mã.
+
+---
+
+## 📂 2. Cấu Trúc Thư Mục Chuẩn Hóa
 
 ```text
 GProject/
-├── package.json              (Cấu hình npm scripts quản lý build/watch SASS)
-├── styles.scss               (Tệp SCSS đơn thực hành biên dịch trực tiếp)
-├── styles.css                (Tệp CSS sau khi biên dịch từ styles.scss)
-├── scss/                     (Thư mục chứa các tệp module SCSS)
-│   ├── _variables.scss       (Biến SASS: màu sắc, font, shadow)
-│   ├── _mixins.scss          (Mixins: flexbox, transition, border-radius)
-│   ├── _header.scss          (Module định dạng Header)
-│   ├── _navbar.scss          (Module định dạng Navbar)
-│   ├── _cards.scss           (Module định dạng Card Layout)
-│   ├── _footer.scss          (Module định dạng Footer)
-│   └── styles.scss           (Tệp SCSS chính import các module)
-├── css/
-│   ├── styles.css            (Tệp CSS được biên dịch tự động từ thư mục scss/)
-│   └── style.css             (CSS gốc của website)
-└── images/                   (Tài nguyên hình ảnh)
+├── abstracts/
+│   ├── _variables.scss       # Biến màu sắc, nền, border, shadow
+│   └── _mixins.scss          # Mixin tái sử dụng button-style và box-shadow
+├── base/
+│   └── _global.scss          # Định dạng chung cho thẻ body
+├── layout/
+│   └── _container.scss       # Định dạng layout khối container
+├── components/
+│   ├── _buttons.scss         # Component nút bấm áp dụng @include button-style
+│   └── _cards.scss           # Component thẻ card áp dụng @include box-shadow
+├── main.scss                 # File tập trung import toàn bộ partials
+├── main.css                  # File CSS được biên dịch tự động từ main.scss
+├── demo.html                 # Giao diện demo kiểm thử các component
+└── package.json              # Quản lý lệnh biên dịch qua npm scripts
 ```
 
 ---
 
-## 🚀 3. Hướng dẫn các lệnh SASS CLI đã thực hành
+## 📝 3. Chi Tiết Mã Nguồn SCSS
 
-### 🔹 Biên dịch một tệp đơn:
-```bash
-sass styles.scss styles.css
+### 🔸 `abstracts/_variables.scss`
+```scss
+$primary-color: blue;
+$text-color: #333;
+$background-color: #f4f4f4;
+$border-color: #ddd;
+$box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 ```
-*Tự động chuyển đổi `styles.scss` thành `styles.css`.*
 
-### 🔹 Kích hoạt chế độ theo dõi tự động (Watch mode):
-```bash
-sass styles.scss styles.css --watch
+### 🔸 `abstracts/_mixins.scss`
+```scss
+@mixin button-style($bg-color) {
+  background: $bg-color;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+@mixin box-shadow {
+  box-shadow: $box-shadow;
+}
 ```
-*Tự động biên dịch lại ngay khi lưu thay đổi trong tệp SCSS.*
 
-### 🔹 Biên dịch nhiều tệp SCSS cùng lúc (Thư mục đầu vào -> đầu ra):
-```bash
-sass scss/:css/ --watch
+### 🔸 `base/_global.scss`
+```scss
+body {
+  font-family: Arial, sans-serif;
+  color: $text-color;
+  background: $background-color;
+}
 ```
-*Theo dõi toàn bộ thư mục `scss/` và xuất kết quả sang `css/styles.css`.*
 
-### 🔹 Sử dụng thông qua npm scripts:
-```bash
-# Biên dịch một lần:
-npm run build-css
+### 🔸 `layout/_container.scss`
+```scss
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+```
 
-# Chế độ theo dõi liên tục:
-npm run watch-css
+### 🔸 `components/_buttons.scss`
+```scss
+.button {
+  @include button-style($primary-color);
+}
+```
+
+### 🔸 `components/_cards.scss`
+```scss
+.card {
+  border: 1px solid $border-color;
+  padding: 20px;
+  @include box-shadow;
+}
+```
+
+### 🔸 `main.scss`
+```scss
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/global";
+@import "layout/container";
+@import "components/buttons";
+@import "components/cards";
 ```
 
 ---
 
-## 🛠️ 4. Xử lý lỗi quyền thực thi trên Windows PowerShell
-Khi gặp lỗi script ExecutionPolicy trên Windows:
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+## 🚀 4. Lệnh Biên Dịch SASS
+
+```bash
+# Biên dịch main.scss ra main.css:
+sass main.scss main.css
+
+# Chế độ tự động cập nhật khi sửa SCSS:
+sass main.scss main.css --watch
+
+# Sử dụng npm script:
+npm run build-main
 ```
-Lệnh này cho phép chạy các tập lệnh CLI như `sass` hoặc `npm` một cách an toàn mà không bị giới hạn quyền truy cập.

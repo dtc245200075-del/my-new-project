@@ -1,0 +1,8 @@
+// components/_buttons.scss
+.button {
+  @include button-style($primary-color);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
