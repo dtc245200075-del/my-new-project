@@ -1,23 +1,226 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành Box Model - Menu và Tour diễn</title>
     <style>
-        div {
-            margin: 25px;
-            padding: 35px;
-            width: 200px;
-            background-color: lightseagreen;
-            border: 20px dashed indianred;
+        /* 1. Thiết lập Box Model chuẩn toàn trang */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        /* 2. Định dạng Menu điều hướng */
+        header {
+            background-color: #0f172a;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 15px 0;
+        }
+
+        .menu-list {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu-list li {
+            margin: 0 4px;
+        }
+
+        /* Định dạng màu sắc và box model thẻ a trong menu */
+        .menu-list li a {
+            display: block;
+            color: #f1f5f9;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 18px 18px; /* Padding tạo vùng bấm chuột rộng rãi */
+            transition: all 0.3s ease;
+        }
+
+        .menu-list li a:hover {
+            background-color: #1e293b;
+            color: #38bdf8;
+        }
+
+        /* 3. Phần nội dung chính (Container) */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto; /* Margin cách trên/dưới 30px, căn giữa */
+            padding: 0 20px;   /* Padding lề trong 20px */
+        }
+
+        /* 4. Định dạng màu sắc và khoảng cách thẻ h2 */
+        h2 {
+            color: #1e3a8a; /* Màu xanh đậm nổi bật */
+            font-size: 28px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3b82f6; /* Đường viền trang trí */
+        }
+
+        .section-desc {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 35px;
+            font-size: 16px;
+        }
+
+        /* 5. Khối danh sách các tour diễn (Tour Section) */
+        .tour-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        /* 6. Áp dụng toàn diện Box Model (width, padding, border, margin) cho từng Tour Card */
+        .tour-card {
+            width: 320px;                      /* Chiều rộng cố định */
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;         /* Border bao quanh hộp */
+            border-radius: 10px;
+            padding: 24px;                     /* Padding đệm nội dung không dính mép */
+            margin-bottom: 20px;               /* Margin cách nhau giữa các khối */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+            border-color: #3b82f6;
+        }
+
+        /* 7. Định dạng màu sắc và khoảng cách thẻ h3 */
+        h3 {
+            color: #dc2626; /* Màu đỏ nổi bật cho tên tour */
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        /* 8. Định dạng thẻ p bên trong tour card */
+        .tour-card p {
+            color: #475569;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .tour-card p strong {
+            color: #0f172a;
+        }
+
+        .tour-status {
+            display: inline-block;
+            background-color: #fee2e2;
+            color: #ef4444;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* 9. Định dạng thẻ a nút bấm Đặt vé */
+        .btn-ticket {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background-color: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 0;                  /* Padding nút bấm */
+            border: 1px solid transparent;    /* Border nút */
+            border-radius: 6px;
+            margin-top: 10px;                 /* Margin trên */
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-ticket:hover {
+            background-color: #1d4ed8;
+            color: #ffffff;
         }
     </style>
 </head>
-
 <body>
-    <div>
-        Content demo box<br />
-    </div>
-</body>
 
+    <!-- Header & Menu điều hướng -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">THE BAND</div>
+            <ul class="menu-list">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#band">Ban nhạc</a></li>
+                <li><a href="#tour">Tour diễn</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Nội dung chính: Tour diễn -->
+    <main class="container" id="tour">
+        <h2>LỊCH TRÌNH TOUR DIỄN</h2>
+        <p class="section-desc">Đừng bỏ lỡ cơ hội tham gia các đêm nhạc bùng nổ cùng thần tượng của bạn!</p>
+
+        <div class="tour-container">
+            <!-- Tour 1 -->
+            <div class="tour-card">
+                <span class="tour-status">Sắp diễn ra</span>
+                <h3>Tour Diễn Hà Nội</h3>
+                <p><strong>Ngày:</strong> Thứ Bảy, 14/11/2026</p>
+                <p><strong>Địa điểm:</strong> Sân vận động Quốc gia Mỹ Đình</p>
+                <p>Đêm nhạc mở màn cho chuỗi sự kiện âm nhạc lớn nhất năm với âm thanh sống động.</p>
+                <a href="#buy-ticket" class="btn-ticket">Đặt Vé Ngay</a>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-card">
+                <span class="tour-status">Đang mở bán</span>
+                <h3>Tour Diễn Đà Nẵng</h3>
+                <p><strong>Ngày:</strong> Thứ Sáu, 27/11/2026</p>
+                <p><strong>Địa điểm:</strong> Cung thể thao Tiên Sơn</p>
+                <p>Trải nghiệm không gian âm nhạc hoành tráng bên bờ biển Đà Nẵng tuyệt đẹp.</p>
+                <a href="#buy-ticket" class="btn-ticket">Đặt Vé Ngay</a>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-card">
+                <span class="tour-status">Đang mở bán</span>
+                <h3>Tour Diễn TP.HCM</h3>
+                <p><strong>Ngày:</strong> Chủ Nhật, 06/12/2026</p>
+                <p><strong>Địa điểm:</strong> Nhà thi đấu Quân khu 7</p>
+                <p>Đêm gala tổng kết tour diễn với sự góp mặt của hàng loạt nghệ sĩ khách mời đặc biệt.</p>
+                <a href="#buy-ticket" class="btn-ticket">Đặt Vé Ngay</a>
+            </div>
+        </div>
+    </main>
+
+</body>
 </html>
