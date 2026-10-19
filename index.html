@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành Menu Cố Định - Fixed Menu</title>
+    <title>Thực hành Menu Dropdown Dọc - Vertical Dropdown Menu</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,152 +12,191 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-            background-color: #f8fafc;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f1f5f9;
             color: #334155;
+            padding: 50px 20px;
         }
 
-        /* 1. Thanh điều hướng cố định (Fixed Menu) */
-        .navbar {
-            overflow: hidden;
-            background-color: #1e293b;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .navbar-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar a {
-            display: block;
-            color: #f8fafc;
-            text-align: center;
-            padding: 16px 22px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .navbar a:hover {
-            background-color: #3b82f6;
-            color: #ffffff;
-        }
-
-        .navbar a.active {
-            background-color: #2563eb;
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        /* 2. Phần thân .main có chiều cao cuộn trang */
-        .main {
-            padding: 30px 20px;
-            margin-top: 60px; /* Tránh để menu cố định che mất nội dung */
-            height: 1800px;   /* Chiều cao lớn để kích hoạt thanh cuộn trang */
+        .container {
             max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .card-content {
-            background-color: #ffffff;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid #3b82f6;
+            margin: 0 auto;
         }
 
         h1 {
             color: #0f172a;
-            font-size: 32px;
-            margin-bottom: 15px;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
-        h2 {
-            color: #2563eb;
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 16px;
-            color: #475569;
-        }
-
-        .scroll-indicator {
-            background-color: #dbeafe;
-            color: #1d4ed8;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-align: center;
+        p.guide {
+            color: #64748b;
             margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .menu-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 1. Menu dọc chính (Main Vertical Menu) */
+        .vertical-menu {
+            width: 240px;
+            list-style: none;
+            background-color: #1e293b;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 2. Định dạng thẻ li của menu */
+        .vertical-menu > li {
+            position: relative; /* Điểm tựa để định vị menu con */
+            border-bottom: 1px solid #334155;
+        }
+
+        .vertical-menu > li:first-child a {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .vertical-menu > li:last-child {
+            border-bottom: none;
+        }
+
+        .vertical-menu > li:last-child a {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        /* 3. Định dạng thẻ a trong menu */
+        .vertical-menu li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #f8fafc;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .vertical-menu li a:hover {
+            background-color: #3b82f6;
+            color: #ffffff;
+            padding-left: 25px; /* Hiệu ứng dịch sang phải khi hover */
+        }
+
+        /* 4. Menu dropdown con (Cấu trúc ul/li lồng nhau) */
+        .sub-menu {
+            position: absolute;
+            left: 100%; /* Đổ sang bên phải menu cha */
+            top: 0;
+            width: 230px;
+            list-style: none;
+            background-color: #0f172a;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            margin-left: 5px; /* Khoảng cách nhỏ giữa 2 menu */
+
+            /* ẨN MENU CON THEO YÊU CẦU */
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.3s ease;
+            z-index: 100;
+        }
+
+        .sub-menu li {
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .sub-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .sub-menu li a {
+            color: #cbd5e1;
+            padding: 12px 18px;
+            font-size: 14px;
+        }
+
+        .sub-menu li a:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding-left: 22px;
+        }
+
+        /* 5. HIỂN THỊ MENU CON KHI HOVER THEO YÊU CẦU */
+        .vertical-menu li:hover > .sub-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .arrow {
+            font-size: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .vertical-menu li:hover > a .arrow {
+            transform: translateX(4px);
         }
     </style>
 </head>
 <body>
 
-    <!-- Thanh Menu điều hướng cố định (Fixed Menu) -->
-    <div class="navbar">
-        <div class="navbar-container">
-            <a href="#home" class="active">Trang chủ</a>
-            <a href="#news">Tin tức</a>
-            <a href="#services">Dịch vụ</a>
-            <a href="#about">Giới thiệu</a>
-            <a href="#contact">Liên hệ</a>
-        </div>
-    </div>
+    <div class="container">
+        <h1>Thực hành Menu Dropdown Dọc</h1>
+        <p class="guide">Rê chuột (hover) vào các mục có mũi tên (Khóa học, Dịch vụ, Sản phẩm) để xem menu con xổ ngang sang phải:</p>
 
-    <!-- Phần thân .main có chiều cao cuộn trang -->
-    <div class="main">
-        <h1>Thực hành Menu Cố Định (Fixed Top Menu)</h1>
-        <div class="scroll-indicator">
-            👇 Hãy cuộn trang xuống dưới để quan sát thanh menu luôn ghim cố định ở đầu trang!
-        </div>
+        <div class="menu-wrapper">
+            <!-- Cấu trúc ul/li lồng nhau đúng chuẩn -->
+            <ul class="vertical-menu">
+                <li><a href="#home">Trang chủ</a></li>
 
-        <div class="card-content">
-            <h2>1. Thuộc tính position: fixed</h2>
-            <p>
-                Khi một phần tử được đặt <code>position: fixed;</code>, nó sẽ được ghim cố định theo khung nhìn của trình duyệt (viewport). Ngay cả khi bạn cuộn trang lên hay xuống, phần tử đó vẫn giữ nguyên vị trí cũ.
-            </p>
-            <p>
-                Các thuộc tính đi kèm cốt lõi bao gồm: <code>top: 0;</code> để dính sát mép trên cùng, và <code>width: 100%;</code> để thanh menu trải dài toàn bộ chiều ngang màn hình.
-            </p>
-        </div>
+                <!-- Mục 1 có menu dropdown con -->
+                <li>
+                    <a href="#courses">
+                        Khóa học
+                        <span class="arrow">▶</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="#html">HTML5 & CSS3 Cơ Bản</a></li>
+                        <li><a href="#responsive">Thiết kế Responsive Web</a></li>
+                        <li><a href="#js">JavaScript Nâng Cao</a></li>
+                        <li><a href="#react">Lập trình ReactJS</a></li>
+                    </ul>
+                </li>
 
-        <div class="card-content">
-            <h2>2. Xử lý khoảng trống với margin-top</h2>
-            <p>
-                Vì phần tử <code>position: fixed</code> bị tách hoàn toàn ra khỏi luồng tài liệu thông thường (document flow), các nội dung phía dưới sẽ bị đẩy lên mép trên cùng của trang và có thể bị menu che khuất.
-            </p>
-            <p>
-                Để khắc phục, chúng ta sử dụng <code>margin-top: 60px;</code> hoặc <code>padding-top</code> cho khối <code>.main</code> tương ứng với chiều cao của thanh menu.
-            </p>
-        </div>
+                <!-- Mục 2 có menu dropdown con -->
+                <li>
+                    <a href="#services">
+                        Dịch vụ
+                        <span class="arrow">▶</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="#web-design">Thiết kế Giao diện Website</a></li>
+                        <li><a href="#seo">Tối ưu hóa SEO On-page</a></li>
+                        <li><a href="#hosting">Dịch vụ Hosting & Domain</a></li>
+                    </ul>
+                </li>
 
-        <div class="card-content">
-            <h2>3. Trải nghiệm người dùng tốt hơn</h2>
-            <p>
-                Menu cố định giúp người dùng có thể dễ dàng chuyển hướng sang các trang mục khác mà không cần phải cuộn chuột ngược lại lên tận đầu trang, đặc biệt hữu ích với các website có nội dung dài.
-            </p>
-        </div>
+                <!-- Mục 3 có menu dropdown con -->
+                <li>
+                    <a href="#products">
+                        Sản phẩm
+                        <span class="arrow">▶</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="#templates">Mẫu Template Website</a></li>
+                        <li><a href="#plugins">Plugin & Tiện ích</a></li>
+                        <li><a href="#ui-kits">Bộ UI Kits Thiết Kế</a></li>
+                    </ul>
+                </li>
 
-        <div class="card-content">
-            <h2>4. Nội dung kéo dài để cuộn</h2>
-            <p>
-                Khối <code>.main</code> được đặt chiều cao <code>height: 1800px;</code> để bạn có thể thoải mái cuộn trang và chụp ảnh giao diện làm minh chứng nộp bài.
-            </p>
+                <li><a href="#news">Tin tức công nghệ</a></li>
+                <li><a href="#contact">Liên hệ hỗ trợ</a></li>
+            </ul>
         </div>
     </div>
 
