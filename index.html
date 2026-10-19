@@ -3,127 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành thuộc tính flex-flow trong CSS</title>
+    <title>Flexbox Layout - Responsive Web Design</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="container">
         <header class="header">
-            <div class="badge">CSS Flexbox Shorthand</div>
-            <h1>BÀI THỰC HÀNH: THUỘC TÍNH FLEX-FLOW</h1>
-            <p class="subtitle">
-                <code>flex-flow</code> là thuộc tính viết tắt (shorthand) kết hợp giữa 
-                <code>flex-direction</code> và <code>flex-wrap</code>, chỉ áp dụng cho Flex Container.
-            </p>
-            <div class="syntax-banner">
-                <span class="syntax-label">CÚ PHÁP:</span>
-                <code>flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;;</code>
-            </div>
+            <h1>Header</h1>
+            <p class="header-desc">Bố cục trang web Responsive bằng CSS Flexbox</p>
         </header>
 
-        <main class="main-content">
-            <!-- VÍ DỤ 1: row nowrap (Mặc định) -->
-            <section class="example-card">
-                <div class="card-header">
-                    <span class="example-tag tag-blue">Ví dụ 1</span>
-                    <h2>flex-flow: row nowrap <span class="badge-default">(Giá trị mặc định)</span></h2>
-                </div>
-                <p class="explanation">
-                    Sắp xếp các item nằm trên cùng <strong>1 hàng</strong> theo hướng đọc văn bản 
-                    (từ <strong>trái qua phải</strong>: 1 &rarr; 2 &rarr; 3) và không co giãn / xuống dòng khi hết khoảng trống.
-                </p>
-                <div class="code-preview">
-                    <code>.container-1 { display: flex; flex-flow: row nowrap; }</code>
-                </div>
+        <nav class="nav">
+            <span class="nav-title">Navigation:</span>
+            <a href="#home">Trang chủ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#services">Dịch vụ</a>
+            <a href="#blog">Bài viết</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
 
-                <!-- ĐÚNG CHUẨN HTML THEO ĐỀ BÀI -->
-                <div class="container-1">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
+        <div class="main-container">
+            <main class="content">
+                <h2>Main Content</h2>
+                <span class="badge badge-content">flex: 3</span>
+                <p>Khu vực hiển thị nội dung chính của trang web. Khi ở chế độ Desktop, khu vực này chiếm 3 phần độ rộng của khung chứa <code>main-container</code>.</p>
+                
+                <div class="article-box">
+                    <h3>Ưu điểm của CSS Flexbox trong Responsive Layout:</h3>
+                    <ul>
+                        <li><strong>Dễ dàng căn chỉnh:</strong> Linh hoạt xếp các phần tử theo hàng (row) hoặc cột (column).</li>
+                        <li><strong>Tự động co giãn:</strong> Các thuộc tính <code>flex: 3</code> và <code>flex: 1</code> giúp phân chia tỷ lệ vàng 75% - 25% trực quan và chuẩn xác.</li>
+                        <li><strong>Responsive tức thì:</strong> Sử dụng Media Query kết hợp <code>flex-direction: column</code> cho thiết bị di động (màn hình &le; 768px).</li>
+                    </ul>
                 </div>
-            </section>
+            </main>
 
-            <!-- VÍ DỤ 2: row-reverse nowrap -->
-            <section class="example-card">
-                <div class="card-header">
-                    <span class="example-tag tag-green">Ví dụ 2</span>
-                    <h2>flex-flow: row-reverse nowrap</h2>
+            <aside class="sidebar">
+                <h3>Sidebar</h3>
+                <span class="badge badge-sidebar">flex: 1</span>
+                <p>Khu vực nội dung phụ, chứa các thông tin bổ sung, tin mới hoặc quảng cáo.</p>
+                <div class="sidebar-widget">
+                    <h4>📌 Tin tức mới</h4>
+                    <p>Khám phá các kỹ thuật dàn trang CSS hiện đại.</p>
                 </div>
-                <p class="explanation">
-                    Sắp xếp các item nằm trên cùng <strong>1 hàng</strong> nhưng theo hướng 
-                    <strong>ngược lại với hướng đọc văn bản</strong> (từ <strong>phải qua trái</strong>: 3 &larr; 2 &larr; 1) và không xuống dòng.
-                </p>
-                <div class="code-preview">
-                    <code>.container-2 { display: flex; flex-flow: row-reverse nowrap; }</code>
+                <div class="sidebar-widget">
+                    <h4>📱 Chế độ Responsive</h4>
+                    <p>Màn hình &le; 768px: Sidebar sẽ tự động chuyển xuống bên dưới Content.</p>
                 </div>
+            </aside>
+        </div>
 
-                <!-- ĐÚNG CHUẨN HTML THEO ĐỀ BÀI -->
-                <div class="container-2">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                </div>
-            </section>
-
-            <!-- KHU VỰC THỬ NGHIỆM TƯƠNG TÁC (INTERACTIVE PLAYGROUND) -->
-            <section class="example-card playground-card">
-                <div class="card-header">
-                    <span class="example-tag tag-purple">Trải nghiệm</span>
-                    <h2>Thử nghiệm các giá trị khác của flex-flow</h2>
-                </div>
-                <p class="explanation">
-                    Bấm chọn nhanh các tổ hợp giá trị để quan sát trực tiếp sự thay đổi hướng sắp xếp và cách xuống dòng:
-                </p>
-
-                <div class="control-panel">
-                    <button class="flow-btn active" onclick="applyFlow('row nowrap', this)">row nowrap</button>
-                    <button class="flow-btn" onclick="applyFlow('row-reverse nowrap', this)">row-reverse nowrap</button>
-                    <button class="flow-btn" onclick="applyFlow('column nowrap', this)">column nowrap</button>
-                    <button class="flow-btn" onclick="applyFlow('column-reverse nowrap', this)">column-reverse nowrap</button>
-                    <button class="flow-btn" onclick="applyFlow('row wrap', this)">row wrap</button>
-                    <button class="flow-btn" onclick="applyFlow('row-reverse wrap', this)">row-reverse wrap</button>
-                </div>
-
-                <div class="current-flow-box">
-                    Giá trị đang áp dụng: <strong id="active-flow-code">flex-flow: row nowrap;</strong>
-                </div>
-
-                <div class="interactive-container" id="demoContainer">
-                    <div class="box">Item 1</div>
-                    <div class="box">Item 2</div>
-                    <div class="box">Item 3</div>
-                    <div class="box">Item 4</div>
-                    <div class="box">Item 5</div>
-                </div>
-            </section>
-
-            <!-- BẢNG TỔNG KẾT KIẾN THỨC -->
-            <footer class="summary-card">
-                <h3>📌 Ghi nhớ quan trọng:</h3>
-                <ul>
-                    <li><strong>flex-flow</strong> là thuộc tính viết tắt gộp từ <code>flex-direction</code> và <code>flex-wrap</code>.</li>
-                    <li>Chỉ có hiệu lực khi khai báo ở <strong>phần tử cha (Flex Container)</strong> có <code>display: flex</code> hoặc <code>display: inline-flex</code>.</li>
-                    <li>Nếu bỏ qua một trong hai giá trị, giá trị còn lại sẽ tự động lấy mặc định (ví dụ <code>flex-flow: row</code> tương đương <code>row nowrap</code>).</li>
-                </ul>
-            </footer>
-        </main>
+        <footer class="footer">
+            <p>Footer</p>
+            <small>&copy; 2026 Responsive Web Layout với CSS Flexbox | Thiết kế tối ưu cho Desktop & Mobile</small>
+        </footer>
     </div>
-
-    <script>
-        function applyFlow(value, btn) {
-            const container = document.getElementById('demoContainer');
-            const display = document.getElementById('active-flow-code');
-            
-            container.style.flexFlow = value;
-            display.textContent = 'flex-flow: ' + value + ';';
-            
-            document.querySelectorAll('.flow-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
-    </script>
 </body>
 </html>

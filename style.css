@@ -1,4 +1,4 @@
-/* ===== RESET & BASE STYLES ===== */
+/* ===== BƯỚC 2: ĐỊNH DẠNG CSS FLEXBOX CHO DESKTOP ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,312 +6,222 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #f8fafc;
-    color: #1e293b;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    color: #2d3748;
     line-height: 1.6;
-    padding: 30px 20px;
 }
 
-.wrapper {
-    max-width: 900px;
-    margin: 0 auto;
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* ===== HEADER ===== */
-.header {
+.header, .footer {
+    background-color: #333;
+    color: white;
     text-align: center;
-    margin-bottom: 30px;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    padding: 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.header .header-desc {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-top: 6px;
+}
+
+.nav {
+    background-color: #444;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-title {
+    font-weight: 600;
+    color: #94a3b8;
+    margin-right: 5px;
+}
+
+.nav a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 14.5px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav a:hover {
+    background-color: #2563eb;
     color: #ffffff;
-    padding: 35px 25px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.25);
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+}
+
+.content {
+    flex: 3;
+    padding: 25px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+}
+
+.content h2 {
+    font-size: 24px;
+    color: #1e293b;
+    margin-bottom: 8px;
 }
 
 .badge {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    color: #ffffff;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.header h1 {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-size: 15px;
-    color: #e0e7ff;
-    max-width: 650px;
-    margin: 0 auto 16px;
-}
-
-.subtitle code {
-    background-color: rgba(255, 255, 255, 0.25);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13.5px;
-}
-
-.syntax-banner {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #0f172a;
-    padding: 8px 18px;
-    border-radius: 8px;
-    font-size: 14px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-}
-
-.syntax-label {
-    color: #fbbf24;
-    font-weight: 700;
-    font-size: 12px;
-}
-
-.syntax-banner code {
-    color: #38bdf8;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-}
-
-/* ===== CARDS & SECTIONS ===== */
-.example-card {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    padding: 3px 10px;
     border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-}
-
-.example-tag {
     font-size: 12px;
     font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
-    text-transform: uppercase;
+    font-family: monospace;
+    margin-bottom: 15px;
 }
 
-.tag-blue {
-    background-color: #eff6ff;
+.badge-content {
+    background-color: #dbeafe;
     color: #1d4ed8;
     border: 1px solid #bfdbfe;
 }
 
-.tag-green {
-    background-color: #f0fdf4;
-    color: #15803d;
-    border: 1px solid #bbf7d0;
+.badge-sidebar {
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
 }
 
-.tag-purple {
-    background-color: #faf5ff;
-    color: #7e22ce;
-    border: 1px solid #e9d5ff;
-}
-
-.card-header h2 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #0f172a;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.badge-default {
-    font-size: 12px;
-    font-weight: 500;
-    color: #64748b;
-}
-
-.explanation {
-    font-size: 14.5px;
+.content p {
+    font-size: 15px;
     color: #475569;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
 }
 
-.code-preview {
+.article-box {
     background-color: #f8fafc;
-    border-left: 4px solid #3b82f6;
-    padding: 8px 14px;
-    border-radius: 0 6px 6px 0;
-    margin-bottom: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
 }
 
-.code-preview code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13.5px;
+.article-box h3 {
+    font-size: 17px;
     color: #0f172a;
-    font-weight: 600;
-}
-
-/* ==============================================================
-   CHÍNH XÁC THEO YÊU CẦU ĐỀ BÀI CHO 2 CONTAINER VÍ DỤ FLEX-FLOW
-   ============================================================== */
-.container-1 {
-    display: flex;
-    flex-flow: row nowrap;
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    border: 1px dashed #cbd5e1;
-}
-
-.container-1 > div {
-    background-color: #007bff;
-    color: white;
-    width: 100px;
-    margin: 10px;
-    text-align: center;
-    line-height: 50px;
-    font-weight: 700;
-    font-size: 18px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
-}
-
-.container-2 {
-    display: flex;
-    flex-flow: row-reverse nowrap;
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    border: 1px dashed #cbd5e1;
-}
-
-.container-2 > div {
-    background-color: #28a745;
-    color: white;
-    width: 100px;
-    margin: 10px;
-    text-align: center;
-    line-height: 50px;
-    font-weight: 700;
-    font-size: 18px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
-}
-
-/* ===== KHU VỰC THỬ NGHIỆM TƯƠNG TÁC (INTERACTIVE PLAYGROUND) ===== */
-.playground-card {
-    border-color: #c084fc;
-}
-
-.control-panel {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.flow-btn {
-    background-color: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: #334155;
-    padding: 7px 14px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: 'JetBrains Mono', monospace;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.flow-btn:hover {
-    background-color: #f1f5f9;
-    border-color: #94a3b8;
-}
-
-.flow-btn.active {
-    background-color: #8b5cf6;
-    color: #ffffff;
-    border-color: #7c3aed;
-    box-shadow: 0 2px 6px rgba(139, 92, 246, 0.35);
-}
-
-.current-flow-box {
-    font-size: 14px;
-    color: #475569;
     margin-bottom: 12px;
 }
 
-.current-flow-box strong {
-    color: #7c3aed;
-    font-family: 'JetBrains Mono', monospace;
+.article-box ul {
+    padding-left: 20px;
 }
 
-.interactive-container {
-    display: flex;
-    flex-flow: row nowrap;
-    background-color: #f8fafc;
-    border: 2px dashed #a855f7;
-    border-radius: 8px;
-    padding: 10px;
-    min-height: 90px;
-    transition: all 0.3s ease;
-}
-
-.interactive-container .box {
-    background: linear-gradient(135deg, #a855f7, #6366f1);
-    color: white;
-    width: 90px;
-    margin: 8px;
-    text-align: center;
-    line-height: 45px;
-    font-weight: 600;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(99, 102, 241, 0.25);
-}
-
-/* ===== TỔNG KẾT & GHI NHỚ ===== */
-.summary-card {
-    background-color: #fffbeb;
-    border: 1px solid #fde68a;
-    border-radius: 12px;
-    padding: 20px 24px;
-}
-
-.summary-card h3 {
-    color: #92400e;
-    font-size: 16px;
+.article-box li {
+    font-size: 14.5px;
+    color: #334155;
     margin-bottom: 10px;
 }
 
-.summary-card ul {
-    padding-left: 20px;
-    color: #78350f;
-    font-size: 14px;
+.article-box code {
+    background-color: #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #0f172a;
 }
 
-.summary-card li {
+.sidebar {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 25px 20px;
+    border-left: 1px solid #e5e7eb;
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.sidebar p {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 16px;
+}
+
+.sidebar-widget {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-widget h4 {
+    font-size: 14.5px;
+    color: #111827;
     margin-bottom: 6px;
 }
 
-.summary-card code {
-    background-color: #fef3c7;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    color: #b45309;
+.sidebar-widget p {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.footer small {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* ===== BƯỚC 3: RESPONSIVE VỚI MEDIA QUERIES ===== */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .content {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .sidebar {
+        border-left: none;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .nav a {
+        padding: 5px 10px;
+        font-size: 13.5px;
+    }
 }
