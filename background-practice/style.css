@@ -1,0 +1,91 @@
+/* 1. Thiết lập màu nền (background-color) cho toàn trang */
+body {
+    background-color: #e2e8f0; /* Màu nền trang xám xanh thanh lịch */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.main-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    color: #0f172a;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 16px;
+    color: #475569;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* 2. Thêm ảnh nền (background-image) vào khối <div> và căn giữa nội dung bên trong */
+#featured-banner, .highlight-box {
+    /* Thiết lập ảnh nền chất lượng cao từ Unsplash kết hợp lớp phủ mờ tinh tế */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Căn giữa nội dung bên trong khối <div> */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    min-height: 350px;
+    border-radius: 12px;
+    color: #ffffff;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.banner-content {
+    max-width: 600px;
+}
+
+.banner-content h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.banner-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.explore-btn {
+    background-color: #38bdf8;
+    color: #0f172a;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(56, 189, 248, 0.4);
+}
+
+.explore-btn:hover {
+    background-color: #0ea5e9;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(14, 165, 233, 0.5);
+}
