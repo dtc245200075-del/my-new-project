@@ -2,23 +2,164 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Mô hình hộp CSS - Box Model</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành Menu Cố Định - Fixed Menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        /* 1. Thanh điều hướng cố định (Fixed Menu) */
+        .navbar {
+            overflow: hidden;
+            background-color: #1e293b;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            display: block;
+            color: #f8fafc;
+            text-align: center;
+            padding: 16px 22px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #3b82f6;
+            color: #ffffff;
+        }
+
+        .navbar a.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* 2. Phần thân .main có chiều cao cuộn trang */
+        .main {
+            padding: 30px 20px;
+            margin-top: 60px; /* Tránh để menu cố định che mất nội dung */
+            height: 1800px;   /* Chiều cao lớn để kích hoạt thanh cuộn trang */
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card-content {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3b82f6;
+        }
+
+        h1 {
+            color: #0f172a;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #2563eb;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #475569;
+        }
+
+        .scroll-indicator {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
-    <div class="card">
-        <h3>Card 1</h3>
-        <p>box-sizing: content-box<br>Kích thước nội dung chuẩn, padding và border được cộng thêm vào ngoài.</p>
+
+    <!-- Thanh Menu điều hướng cố định (Fixed Menu) -->
+    <div class="navbar">
+        <div class="navbar-container">
+            <a href="#home" class="active">Trang chủ</a>
+            <a href="#news">Tin tức</a>
+            <a href="#services">Dịch vụ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#contact">Liên hệ</a>
+        </div>
     </div>
 
-    <div class="card">
-        <h3>Card 2</h3>
-        <p>box-sizing: border-box<br>Kích thước bao gồm cả padding và border bên trong chiều rộng 280px.</p>
+    <!-- Phần thân .main có chiều cao cuộn trang -->
+    <div class="main">
+        <h1>Thực hành Menu Cố Định (Fixed Top Menu)</h1>
+        <div class="scroll-indicator">
+            👇 Hãy cuộn trang xuống dưới để quan sát thanh menu luôn ghim cố định ở đầu trang!
+        </div>
+
+        <div class="card-content">
+            <h2>1. Thuộc tính position: fixed</h2>
+            <p>
+                Khi một phần tử được đặt <code>position: fixed;</code>, nó sẽ được ghim cố định theo khung nhìn của trình duyệt (viewport). Ngay cả khi bạn cuộn trang lên hay xuống, phần tử đó vẫn giữ nguyên vị trí cũ.
+            </p>
+            <p>
+                Các thuộc tính đi kèm cốt lõi bao gồm: <code>top: 0;</code> để dính sát mép trên cùng, và <code>width: 100%;</code> để thanh menu trải dài toàn bộ chiều ngang màn hình.
+            </p>
+        </div>
+
+        <div class="card-content">
+            <h2>2. Xử lý khoảng trống với margin-top</h2>
+            <p>
+                Vì phần tử <code>position: fixed</code> bị tách hoàn toàn ra khỏi luồng tài liệu thông thường (document flow), các nội dung phía dưới sẽ bị đẩy lên mép trên cùng của trang và có thể bị menu che khuất.
+            </p>
+            <p>
+                Để khắc phục, chúng ta sử dụng <code>margin-top: 60px;</code> hoặc <code>padding-top</code> cho khối <code>.main</code> tương ứng với chiều cao của thanh menu.
+            </p>
+        </div>
+
+        <div class="card-content">
+            <h2>3. Trải nghiệm người dùng tốt hơn</h2>
+            <p>
+                Menu cố định giúp người dùng có thể dễ dàng chuyển hướng sang các trang mục khác mà không cần phải cuộn chuột ngược lại lên tận đầu trang, đặc biệt hữu ích với các website có nội dung dài.
+            </p>
+        </div>
+
+        <div class="card-content">
+            <h2>4. Nội dung kéo dài để cuộn</h2>
+            <p>
+                Khối <code>.main</code> được đặt chiều cao <code>height: 1800px;</code> để bạn có thể thoải mái cuộn trang và chụp ảnh giao diện làm minh chứng nộp bài.
+            </p>
+        </div>
     </div>
 
-    <div class="card">
-        <h3>Card 3</h3>
-        <p>box-sizing: border-box<br>Kích thước bao gồm cả padding và border bên trong chiều rộng 280px.</p>
-    </div>
 </body>
 </html>
