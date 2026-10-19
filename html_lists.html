@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Thực hành danh sách trong HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 20px 40px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+        }
+        li {
+            margin: 6px 0;
+        }
+        .container {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thực hành các loại danh sách trong HTML (HTML Lists)</h1>
+
+        <!-- 1. Danh sách mua sắm không có thứ tự (<ul>) -->
+        <h2>1. Danh sách mua sắm (Unordered List - &lt;ul&gt;)</h2>
+        <ul>
+            <li>Sữa tươi tiệt trùng</li>
+            <li>Trứng gà sạch</li>
+            <li>Bánh mì ngũ cốc nguyên cám</li>
+            <li>Rau xà lách và cà chua</li>
+            <li>Táo đỏ và chuối chín</li>
+            <li>Thịt bò phi lê</li>
+        </ul>
+
+        <!-- 2. Danh sách công việc cần làm có thứ tự (<ol>) -->
+        <h2>2. Danh sách công việc cần làm trong ngày (Ordered List - &lt;ol&gt;)</h2>
+        <ol>
+            <li>Thức dậy lúc 6:00 sáng và tập thể dục 30 phút</li>
+            <li>Ăn sáng bổ dưỡng và uống đủ nước</li>
+            <li>Tham gia lớp học trực tuyến môn Lập trình Web</li>
+            <li>Thực hành tạo các loại danh sách trong HTML (ul, ol, nested list)</li>
+            <li>Kiểm tra lại mã nguồn và mở trên trình duyệt web</li>
+            <li>Chụp ảnh màn hình giao diện bài tập để nộp bài</li>
+            <li>Đọc trước tài liệu về bảng biểu (Table) trong HTML cho buổi sau</li>
+        </ol>
+
+        <!-- 3. Danh sách lồng nhau (Nested List) -->
+        <h2>3. Danh sách lồng nhau (Nested List)</h2>
+        <ul>
+            <li>
+                <strong>Lộ trình học Lập trình Web Front-end</strong>
+                <ol>
+                    <li>
+                        HTML (HyperText Markup Language)
+                        <ul>
+                            <li>Cấu trúc cơ bản và thẻ tài liệu (&lt;html&gt;, &lt;head&gt;, &lt;body&gt;)</li>
+                            <li>Định dạng văn bản (&lt;h1&gt;-&lt;h6&gt;, &lt;p&gt;, &lt;b&gt;, &lt;i&gt;)</li>
+                            <li>Danh sách (&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;)</li>
+                            <li>Liên kết (&lt;a&gt;) và hình ảnh (&lt;img&gt;)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        CSS (Cascading Style Sheets)
+                        <ul>
+                            <li>CSS Selectors và độ ưu tiên</li>
+                            <li>Màu sắc, font chữ và căn chỉnh văn bản</li>
+                            <li>Mô hình hộp (Box Model: Margin, Border, Padding)</li>
+                            <li>Flexbox và CSS Grid Layout</li>
+                        </ul>
+                    </li>
+                    <li>
+                        JavaScript cơ bản
+                        <ul>
+                            <li>Biến, kiểu dữ liệu và toán tử</li>
+                            <li>Hàm và vòng lặp</li>
+                            <li>DOM Manipulation và xử lý sự kiện (Event Handling)</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <strong>Công cụ hỗ trợ học tập</strong>
+                <ul>
+                    <li>Trình soạn thảo mã: Visual Studio Code</li>
+                    <li>Hệ thống quản lý phiên bản: Git &amp; GitHub</li>
+                    <li>Trình duyệt kiểm thử: Google Chrome / Microsoft Edge</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
