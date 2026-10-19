@@ -1,0 +1,196 @@
+// Biến SASS
+$primary-color: #1abc9c;
+$primary-hover: #16a085;
+$accent-color: #f39c12;
+$dark-bg: #2c3e50;
+$nav-bg: #333333;
+$text-light: #ffffff;
+$text-dark: #333333;
+$card-bg: #ffffff;
+$shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+$font-family: 'Arial', sans-serif;
+
+// Mixin
+@mixin transition($time: 0.3s) {
+    transition: all $time ease-in-out;
+}
+
+@mixin radius($r: 10px) {
+    border-radius: $r;
+}
+
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+}
+
+/* Header */
+.header {
+    background: url('images/banner.jpg') center/cover no-repeat;
+    color: $text-light;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        background: inherit;
+        filter: blur(8px);
+        z-index: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .header-content {
+        position: relative;
+        z-index: 2;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: $primary-color;
+            color: $text-light;
+            padding: 10px 20px;
+            @include radius(5px);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            @include transition(0.3s);
+
+            &:hover {
+                background: $primary-hover;
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: $nav-bg;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+
+        li {
+            margin: 0 15px;
+
+            a {
+                text-decoration: none;
+                color: $text-light;
+                font-size: 18px;
+                padding: 10px;
+                @include transition(0.3s);
+
+                &:hover {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+}
+
+/* Content Section */
+.content {
+    text-align: center;
+    padding: 50px 20px;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: $text-dark;
+    }
+}
+
+/* Card Layout */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: $card-bg;
+    box-shadow: $shadow;
+    padding: 20px;
+    @include radius(10px);
+    @include transition(0.3s);
+    text-align: center;
+
+    &:hover {
+        transform: translateY(-5px) scale(1.03);
+    }
+
+    img {
+        width: 100%;
+        @include radius(10px);
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: $text-dark;
+    }
+
+    p {
+        color: #666;
+        line-height: 1.5;
+    }
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: $dark-bg;
+    color: $text-light;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

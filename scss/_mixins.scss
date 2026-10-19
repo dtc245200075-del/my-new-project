@@ -1,0 +1,20 @@
+// SASS Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin transition-all($time: 0.3s) {
+    transition: all $time ease-in-out;
+}
+
+@mixin border-radius($radius: 10px) {
+    border-radius: $radius;
+}

@@ -1,60 +1,76 @@
-# GProject - Phân Tích & Triển Khai Website Template Cơ Bản (HTML & CSS)
+# GProject - Thực Hành Cài Đặt Node.js, npm & Biên Dịch SASS (SCSS sang CSS)
 
-## 🎯 Mục tiêu bài tập
-1. Phân tích cấu trúc của một website thực tế theo các phần chính: Header, Navigation Menu, Content Section, Footer.
-2. Xây dựng lại bố cục tương tự bằng HTML5 & CSS với cấu trúc file/thư mục chuẩn, tinh gọn, khoa học.
+Dự án hướng dẫn chi tiết và thực hành toàn diện quy trình kiểm tra, cài đặt **Node.js**, **npm**, **SASS CLI** và biên dịch tệp **SCSS sang CSS** theo chuẩn chuyên nghiệp.
 
 ---
 
-## 🔍 BÁO CÁO PHÂN TÍCH CẤU TRÚC WEBSITE THỰC TẾ
+## 📌 1. Kết quả kiểm tra môi trường trên hệ thống
 
-### 1. Header (Đầu trang)
-- **Vị trí & Vai trò:** Nằm ở vị trí trên cùng của website, đóng vai trò nhận diện thương hiệu và gây ấn tượng đầu tiên cho người truy cập.
-- **Bố cục:** Chứa tiêu đề chính của trang web (`<h1>Creative Web Design</h1>`), dòng thông điệp giới thiệu (*Thiết kế website chuyên nghiệp - Hiện đại - Ấn tượng*) và nút kêu gọi hành động CTA (*Khám phá ngay*). Nền sử dụng hình ảnh sắc nét kèm hiệu ứng làm mờ (blur) để nổi bật nội dung chữ.
-
-### 2. Navigation Menu (Thanh điều hướng)
-- **Vị trí & Vai trò:** Đặt ngay sau Header (hoặc ghim cố định ở đầu trang), giúp người dùng dễ dàng chuyển đổi qua lại giữa các phần trong website.
-- **Bố cục:** Gồm 4 mục điều hướng cốt lõi:
-  - `Trang chủ`: Quay về trang chính.
-  - `Dịch vụ`: Điều hướng nhanh đến phần giới thiệu dịch vụ.
-  - `Blog`: Trang chia sẻ kiến thức và tin tức.
-  - `Liên hệ`: Kênh kết nối và thông tin hỗ trợ.
-- **Trải nghiệm UX:** Có hiệu ứng đổi màu mượt mà khi di chuột (hover).
-
-### 3. Content Section (Phần nội dung chính)
-- **Vị trí & Vai trò:** Phần trung tâm thể hiện giá trị và dịch vụ của doanh nghiệp.
-- **Bố cục:** Thiết kế theo dạng thẻ (Card Layout) sử dụng CSS Grid chia thành 3 cột cân đối:
-  - Thẻ 1: **Thiết kế Website** (Kèm ảnh minh họa & mô tả dịch vụ).
-  - Thẻ 2: **SEO & Marketing** (Kèm ảnh dashboard chỉ số & mô tả).
-  - Thẻ 3: **Hỗ trợ 24/7** (Kèm ảnh đội ngũ chăm sóc khách hàng & mô tả).
-- Sử dụng dấu chấm (`•`) để phân cấp và nhấn mạnh từng ý nội dung rõ ràng, mạch lạc.
-
-### 4. Footer (Chân trang)
-- **Vị trí & Vai trò:** Nằm ở đáy trang web, chốt lại thông tin bản quyền và kết nối đa kênh.
-- **Bố cục:** Bố trí 2 cột ngang đối xứng bằng Flexbox (`justify-content: space-between`):
-  - Cột trái: Bản quyền sở hữu trí tuệ (`• © 2025 Creative Web. All rights reserved.`).
-  - Cột phải: Kênh truyền thông xã hội (`• Theo dõi chúng tôi: • Facebook | Twitter | LinkedIn`).
+| Công cụ | Lệnh kiểm tra | Phiên bản đã cài đặt | Trạng thái |
+| :--- | :--- | :--- | :--- |
+| **Node.js** | `node -v` | **v20.18.0** | ✅ Đã cài đặt & cấu hình PATH |
+| **npm** | `npm -v` | **10.8.2** | ✅ Hoạt động sẵn sàng |
+| **SASS CLI** | `sass --version` | **1.99.0** (Dart Sass) | ✅ Cài đặt toàn cục qua `npm install -g sass` |
 
 ---
 
-## 📁 Tổ chức File và Thư mục Dự án
+## 📂 2. Cấu trúc tệp SCSS và CSS trong dự án
 
 ```text
 GProject/
-├── index.html                     (Mã HTML bố cục trang)
-├── style.css                      (CSS định dạng giao diện)
+├── package.json              (Cấu hình npm scripts quản lý build/watch SASS)
+├── styles.scss               (Tệp SCSS đơn thực hành biên dịch trực tiếp)
+├── styles.css                (Tệp CSS sau khi biên dịch từ styles.scss)
+├── scss/                     (Thư mục chứa các tệp module SCSS)
+│   ├── _variables.scss       (Biến SASS: màu sắc, font, shadow)
+│   ├── _mixins.scss          (Mixins: flexbox, transition, border-radius)
+│   ├── _header.scss          (Module định dạng Header)
+│   ├── _navbar.scss          (Module định dạng Navbar)
+│   ├── _cards.scss           (Module định dạng Card Layout)
+│   ├── _footer.scss          (Module định dạng Footer)
+│   └── styles.scss           (Tệp SCSS chính import các module)
 ├── css/
-│   └── style.css                  (CSS thư mục chuẩn)
-├── images/                        (Thư mục chứa tài nguyên ảnh)
-│   ├── banner.jpg                 (Ảnh nền Header)
-│   ├── service1.jpg               (Ảnh dịch vụ Thiết kế Web)
-│   ├── service2.jpg               (Ảnh dịch vụ SEO & Marketing)
-│   └── service3.jpg               (Ảnh dịch vụ Hỗ trợ 24/7)
-├── original-website-analysis.png  (Ảnh chụp màn hình trang web gốc đã phân tích)
-└── README.md                      (Báo cáo phân tích và tài liệu dự án)
+│   ├── styles.css            (Tệp CSS được biên dịch tự động từ thư mục scss/)
+│   └── style.css             (CSS gốc của website)
+└── images/                   (Tài nguyên hình ảnh)
 ```
 
 ---
 
-## 📸 Ảnh chụp màn hình trang web phân tích
-Ảnh chụp màn hình trang web thực tế được lưu tại: `original-website-analysis.png`
+## 🚀 3. Hướng dẫn các lệnh SASS CLI đã thực hành
+
+### 🔹 Biên dịch một tệp đơn:
+```bash
+sass styles.scss styles.css
+```
+*Tự động chuyển đổi `styles.scss` thành `styles.css`.*
+
+### 🔹 Kích hoạt chế độ theo dõi tự động (Watch mode):
+```bash
+sass styles.scss styles.css --watch
+```
+*Tự động biên dịch lại ngay khi lưu thay đổi trong tệp SCSS.*
+
+### 🔹 Biên dịch nhiều tệp SCSS cùng lúc (Thư mục đầu vào -> đầu ra):
+```bash
+sass scss/:css/ --watch
+```
+*Theo dõi toàn bộ thư mục `scss/` và xuất kết quả sang `css/styles.css`.*
+
+### 🔹 Sử dụng thông qua npm scripts:
+```bash
+# Biên dịch một lần:
+npm run build-css
+
+# Chế độ theo dõi liên tục:
+npm run watch-css
+```
+
+---
+
+## 🛠️ 4. Xử lý lỗi quyền thực thi trên Windows PowerShell
+Khi gặp lỗi script ExecutionPolicy trên Windows:
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+```
+Lệnh này cho phép chạy các tập lệnh CLI như `sass` hoặc `npm` một cách an toàn mà không bị giới hạn quyền truy cập.

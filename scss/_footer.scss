@@ -1,0 +1,20 @@
+// Footer Styles
+.footer {
+    @include flex-between;
+    padding: 20px 40px;
+    background: $dark-bg;
+    color: $text-light;
+    text-align: center;
+
+    .footer-left p,
+    .footer-right p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+}
