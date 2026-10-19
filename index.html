@@ -3,62 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Web Design</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Responsive Grid Refactored with SASS</title>
+    <link rel="stylesheet" href="responsive-grid.css">
 </head>
 <body>
 
-    <!-- Header với nền ảnh và hiệu ứng blur -->
-    <header class="header">
-        <div class="header-content">
-            <h1>Creative Web Design</h1>
-            <p>Thiết kế website chuyên nghiệp - Hiện đại - Ấn tượng</p>
-            <a href="#services" class="btn">Khám phá ngay</a>
-        </div>
-    </header>
+<div class="gridcontainer overlay-grid">
+    <!-- Header: 12 cột full-width -->
+    <div class="gridwrapper header-wrapper">
+        <div class="gridcontent col-12 header-bar"></div>
+    </div>
 
-    <!-- Thanh điều hướng -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#">Trang chủ</a></li>
-            <li><a href="#services">Dịch vụ</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Liên hệ</a></li>
-        </ul>
-    </nav>
+    <!-- Hàng chính: 3 cột Menu (col-3) + 6 cột trống + 3 cột Nội dung (col-3) -->
+    <div class="gridwrapper main-wrapper">
+        <div class="gridcontent col-3 no-border white-bg sidebar-menu">
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+        </div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-3 no-border white-bg content-panel">
+            <div class="panel-body"></div>
+        </div>
+    </div>
 
-    <!-- Content Section với Card Layout -->
-    <section class="content" id="services">
-        <h2>Dịch vụ của chúng tôi</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="images/service1.jpg" alt="Dịch vụ 1">
-                <h3>Thiết kế Website</h3>
-                <p>• Chúng tôi tạo ra những trang web chuyên nghiệp, thân thiện với người dùng.</p>
-            </div>
-            <div class="card">
-                <img src="images/service2.jpg" alt="Dịch vụ 2">
-                <h3>SEO & Marketing</h3>
-                <p>• Giúp website của bạn đạt thứ hạng cao trên công cụ tìm kiếm.</p>
-            </div>
-            <div class="card">
-                <img src="images/service3.jpg" alt="Dịch vụ 3">
-                <h3>Hỗ trợ 24/7</h3>
-                <p>• Đội ngũ hỗ trợ luôn sẵn sàng giúp bạn giải quyết mọi vấn đề.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Footer: 12 cột full-width -->
+    <div class="gridwrapper footer-wrapper">
+        <div class="gridcontent col-12 footer-bar"></div>
+    </div>
+</div>
 
-    <!-- Footer với 2 cột (Bản quyền + Mạng xã hội) -->
-    <footer class="footer">
-        <div class="footer-left">
-            <p>• &copy; 2025 Creative Web. All rights reserved.</p>
-        </div>
-        <div class="footer-right">
-            <p>• Theo dõi chúng tôi:</p>
-            <p>• Facebook | Twitter | LinkedIn</p>
-        </div>
-    </footer>
+<!-- Lưới 12 cột hướng dẫn nền (guide grid) -->
+<div class="gridcontainer guide-grid">
+    <div class="gridwrapper guide-wrapper">
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+    </div>
+</div>
+
+<p class="info-text">Resize the browser window to see that this grid will respond to the resizing, and always use 100% of the available space.</p>
 
 </body>
 </html>
