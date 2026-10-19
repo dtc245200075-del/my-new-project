@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành thuộc tính grid-template-columns</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f8fafc;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+        }
+
+        .example-box {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            font-size: 18px;
+        }
+
+        p.desc {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        /* Ví dụ 1: 3 cột có kích thước bằng nhau */
+        .grid-example-1 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .grid-example-1 div {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            color: #0f172a;
+        }
+
+        /* Ví dụ 2: Các cột có kích thước khác nhau */
+        .grid-example-2 {
+            display: grid;
+            grid-template-columns: 100px 200px 1fr;
+            gap: 10px;
+        }
+
+        .grid-example-2 div {
+            background-color: lightgreen;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            color: #064e3b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>THỰC HÀNH THUỘC TÍNH GRID-TEMPLATE-COLUMNS</h1>
+
+    <!-- VÍ DỤ 1 -->
+    <div class="example-box">
+        <h2>Ví dụ 1: Tạo 3 cột có kích thước bằng nhau (1fr 1fr 1fr)</h2>
+        <p class="desc">Cú pháp: <code>grid-template-columns: 1fr 1fr 1fr; gap: 10px;</code></p>
+        <div class="grid-example-1">
+            <div>Ô 1</div>
+            <div>Ô 2</div>
+            <div>Ô 3</div>
+            <div>Ô 4</div>
+            <div>Ô 5</div>
+            <div>Ô 6</div>
+        </div>
+    </div>
+
+    <!-- VÍ DỤ 2 -->
+    <div class="example-box">
+        <h2>Ví dụ 2: Tạo các cột có kích thước khác nhau (100px 200px 1fr)</h2>
+        <p class="desc">Cú pháp: <code>grid-template-columns: 100px 200px 1fr; gap: 10px;</code></p>
+        <div class="grid-example-2">
+            <div>Cột 1 (100px)</div>
+            <div>Cột 2 (200px)</div>
+            <div>Cột 3 (1fr)</div>
+            <div>Cột 1 (100px)</div>
+            <div>Cột 2 (200px)</div>
+            <div>Cột 3 (1fr)</div>
+        </div>
+    </div>
+
+</body>
+</html>
