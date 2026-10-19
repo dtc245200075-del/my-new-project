@@ -8,14 +8,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.navbar {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #333;
     padding: 15px 20px;
     color: white;
-    position: relative;
 }
 
 .logo {
@@ -23,57 +22,132 @@ body {
     font-weight: bold;
 }
 
-.nav-links {
+.nav ul {
     list-style: none;
     display: flex;
+    gap: 30px;
 }
 
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
+.nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     transition: color 0.2s;
 }
 
-.nav-links a:hover {
+.nav ul li a:hover {
     color: #38bdf8;
 }
 
-.menu-icon {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    user-select: none;
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f4f4f4;
 }
 
-/* ✅ Responsive cho Mobile */
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.services {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.services h2 {
+    margin-bottom: 30px;
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.service {
+    flex: 1;
+    min-width: 250px;
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.testimonials {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ddd;
+}
+
+.testimonials h2 {
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    margin: 10px auto;
+    max-width: 600px;
+    font-style: italic;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Bước 3: Làm Responsive với Media Queries */
 @media (max-width: 768px) {
-    .nav-links {
+    .nav ul {
         display: none;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .service-container {
         flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #333;
+    }
+
+    .service {
         width: 100%;
-        text-align: center;
     }
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        padding: 12px;
-        margin: 0;
-        border-top: 1px solid #444;
-    }
-
-    .menu-icon {
-        display: block;
+    .services,
+    .testimonials {
+        padding: 40px 20px;
     }
 }
