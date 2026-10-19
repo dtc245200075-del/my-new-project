@@ -1,61 +1,64 @@
-# GProject - Chuyển Đổi CSS Truyền Thống Sang SASS Chuẩn
+# GProject - Tối Ưu Hóa CSS Bằng SASS Variables & Mixins
 
-Dự án thực hành chuẩn hóa mã nguồn CSS sang kiến trúc **Modular SASS/SCSS** chuyên nghiệp theo cấu trúc thư mục 7-1 pattern tinh gọn: `abstracts`, `base`, `layout`, và `components`.
+Dự án thực hành tối ưu hóa CSS bằng **SASS Variables** và **Mixins**, giúp giảm lặp code, kiểm soát giao diện tập trung và nâng cao tính tái sử dụng.
 
 ---
 
-## 🎯 1. So Sánh Trước & Sau Khi Chuẩn Hóa SASS
+## 🎯 1. So Sánh Trước & Sau Khi Tối Ưu Hóa
 
-### 🔹 File CSS ban đầu (`styles.css`):
+### 🔹 File CSS ban đầu (trước tối ưu):
 ```css
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-  background: #f4f4f4;
+h1 {
+  font-size: 32px;
+  color: #222;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
+h2 {
+  font-size: 28px;
+  color: #222;
 }
 
 .button {
-  background: blue;
+  background: red;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
 }
 
 .card {
-  border: 1px solid #ddd;
-  padding: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 ```
 
-### 🔹 Cấu trúc SASS chuẩn hóa:
-Tách thành các module riêng biệt giúp dễ bảo trì, mở rộng và tái sử dụng mã.
+### 🔹 Sau khi tối ưu bằng SASS:
+- Các giá trị màu sắc, font chữ, khoảng cách và đổ bóng được chuyển thành **Biến SASS** trong `abstracts/_variables.scss`.
+- Các khối CSS lặp lại (nút bấm, hộp card) được đóng gói thành **Mixins** trong `abstracts/_mixins.scss`.
+- Phân chia module rõ ràng theo cấu trúc 7-1 pattern tinh gọn.
 
 ---
 
-## 📂 2. Cấu Trúc Thư Mục Chuẩn Hóa
+## 📂 2. Cấu Trúc Thư Mục Dự Án
 
 ```text
 GProject/
 ├── abstracts/
-│   ├── _variables.scss       # Biến màu sắc, nền, border, shadow
-│   └── _mixins.scss          # Mixin tái sử dụng button-style và box-shadow
+│   ├── _variables.scss       # Khai báo biến: $primary-color, $text-color, $font-large, $font-medium, $padding-standard, $box-shadow-default
+│   └── _mixins.scss          # Khai báo mixin: button-style($bg-color), box-style
 ├── base/
-│   └── _global.scss          # Định dạng chung cho thẻ body
+│   ├── _global.scss          # Định dạng chung cho body
+│   └── _typography.scss      # Định dạng h1, h2 sử dụng biến SASS
 ├── layout/
-│   └── _container.scss       # Định dạng layout khối container
+│   └── _container.scss       # Định dạng khung .container
 ├── components/
-│   ├── _buttons.scss         # Component nút bấm áp dụng @include button-style
-│   └── _cards.scss           # Component thẻ card áp dụng @include box-shadow
-├── main.scss                 # File tập trung import toàn bộ partials
-├── main.css                  # File CSS được biên dịch tự động từ main.scss
-├── demo.html                 # Giao diện demo kiểm thử các component
-└── package.json              # Quản lý lệnh biên dịch qua npm scripts
+│   ├── _buttons.scss         # Áp dụng @include button-style($primary-color)
+│   └── _cards.scss           # Áp dụng @include box-style
+├── main.scss                 # Tập hợp toàn bộ partials
+├── main.css                  # File CSS sau khi biên dịch từ main.scss
+├── demo.html                 # Trang demo kiểm thử trực quan
+└── package.json              # Quản lý lệnh biên dịch SASS
 ```
 
 ---
@@ -64,11 +67,12 @@ GProject/
 
 ### 🔸 `abstracts/_variables.scss`
 ```scss
-$primary-color: blue;
-$text-color: #333;
-$background-color: #f4f4f4;
-$border-color: #ddd;
-$box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+$primary-color: red;
+$text-color: #222;
+$font-large: 32px;
+$font-medium: 28px;
+$padding-standard: 10px 20px;
+$box-shadow-default: 2px 2px 10px rgba(0, 0, 0, 0.1);
 ```
 
 ### 🔸 `abstracts/_mixins.scss`
@@ -76,29 +80,28 @@ $box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 @mixin button-style($bg-color) {
   background: $bg-color;
   color: white;
-  padding: 10px 20px;
+  padding: $padding-standard;
   border-radius: 5px;
 }
 
-@mixin box-shadow {
-  box-shadow: $box-shadow;
+@mixin box-style {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: $box-shadow-default;
 }
 ```
 
-### 🔸 `base/_global.scss`
+### 🔸 `base/_typography.scss`
 ```scss
-body {
-  font-family: Arial, sans-serif;
+h1 {
+  font-size: $font-large;
   color: $text-color;
-  background: $background-color;
 }
-```
 
-### 🔸 `layout/_container.scss`
-```scss
-.container {
-  width: 80%;
-  margin: 0 auto;
+h2 {
+  font-size: $font-medium;
+  color: $text-color;
 }
 ```
 
@@ -112,9 +115,7 @@ body {
 ### 🔸 `components/_cards.scss`
 ```scss
 .card {
-  border: 1px solid $border-color;
-  padding: 20px;
-  @include box-shadow;
+  @include box-style;
 }
 ```
 
@@ -123,6 +124,7 @@ body {
 @import "abstracts/variables";
 @import "abstracts/mixins";
 @import "base/global";
+@import "base/typography";
 @import "layout/container";
 @import "components/buttons";
 @import "components/cards";
@@ -130,15 +132,15 @@ body {
 
 ---
 
-## 🚀 4. Lệnh Biên Dịch SASS
+## 🚀 4. Lệnh Biên Dịch & Chạy Thử Nghiệm
 
 ```bash
-# Biên dịch main.scss ra main.css:
+# Biên dịch sang CSS:
 sass main.scss main.css
 
-# Chế độ tự động cập nhật khi sửa SCSS:
+# Chế độ tự động theo dõi khi có thay đổi:
 sass main.scss main.css --watch
 
-# Sử dụng npm script:
+# Dùng npm scripts:
 npm run build-main
 ```

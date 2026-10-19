@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SASS Architecture Demo</title>
+    <title>SASS Variables & Mixins Optimization</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="container" style="padding: 40px 0;">
-        <h1>SASS Modular Architecture Demo</h1>
-        <p style="margin: 15px 0;">Dự án chuyển đổi CSS truyền thống sang cấu trúc SASS chuẩn với <code>abstracts</code>, <code>base</code>, <code>layout</code>, và <code>components</code>.</p>
+        <h1>Tiêu đề H1 - Tối ưu hóa SASS Typography ($font-large: 32px)</h1>
+        <h2>Tiêu đề H2 - SASS Typography ($font-medium: 28px)</h2>
         
-        <div class="card" style="margin: 20px 0;">
-            <h2>SASS Card Component</h2>
-            <p style="margin: 10px 0 20px;">Thẻ Card này sử dụng mixin <code>@include box-shadow</code> và biến <code>$border-color</code>.</p>
-            <a href="#" class="button">SASS Button Component</a>
+        <div class="card" style="margin: 25px 0;">
+            <h2>SASS Card Box Component</h2>
+            <p style="margin: 10px 0 20px; line-height: 1.6;">Thẻ Card này được tái sử dụng bằng mixin <code>@mixin box-style</code> (gồm background trắng, bo góc 10px, padding 15px và box-shadow $box-shadow-default).</p>
+            <a href="#" class="button">Nút Bấm SASS Button ($primary-color: red)</a>
         </div>
     </div>
 </body>
