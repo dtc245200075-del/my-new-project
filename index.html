@@ -3,107 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap 5 - Carousel, Flexbox & Font Awesome</title>
-    <!-- Bước 1: Cài đặt Bootstrap 5.3.3 & Font Awesome 6.5.2 -->
+    <title>Thực hành Bootstrap 5 - Grid, Flexbox, Carousel, Display & Form</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bước 5: Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         .carousel-item img {
-            height: 480px;
+            max-height: 480px;
             object-fit: cover;
-        }
-        .contact-card {
-            max-width: 600px;
-            margin: 0 auto;
         }
     </style>
 </head>
-<body class="bg-light">
+<body class="bg-light pb-5">
 
-    <!-- BƯỚC 2: TẠO NAVBAR VỚI FONT AWESOME -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-home"></i> MyWebsite</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+    <!-- BƯỚC 5: SỬ DỤNG FONT AWESOME TRONG TIÊU ĐỀ -->
+    <div class="container mt-4">
+        <h3 class="text-primary fw-bold">
+            <i class="fas fa-home"></i> Trang chủ
+        </h3>
+    </div>
+
+    <!-- BƯỚC 1: CẤU TRÚC GRID VỚI 3 CỘT (KẾT HỢP FLEXBOX CĂN GIỮA) -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 d-flex justify-content-center align-items-center bg-light p-3 border">
+                <p class="mb-0 fw-bold">Phần 1</p>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center align-items-center bg-secondary p-3 text-white">
+                <p class="mb-0 fw-bold">Phần 2</p>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center align-items-center bg-light p-3 border">
+                <p class="mb-0 fw-bold">Phần 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BƯỚC 2: ÁP DỤNG MARGIN & PADDING ĐỂ ĐIỀU CHỈNH KHOẢNG CÁCH -->
+    <div class="container my-5 py-3 bg-white rounded shadow-sm">
+        <h3 class="text-center text-dark fw-bold mb-0">Khoảng cách được điều chỉnh bằng Margin & Padding</h3>
+    </div>
+
+    <!-- BƯỚC 3: SỬ DỤNG DISPLAY PROPERTY ĐỂ HIỂN THỊ ẨN HIỆN NỘI DUNG -->
+    <div class="container">
+        <div class="d-none d-md-block bg-warning text-center p-3 rounded fw-semibold shadow-sm">
+            <p class="mb-0">Nội dung này chỉ hiển thị trên màn hình lớn hơn hoặc bằng 768px (d-none d-md-block)</p>
+        </div>
+    </div>
+
+    <!-- BƯỚC 4: TẠO CAROUSEL 3 SLIDE HÌNH ẢNH -->
+    <div class="container">
+        <div id="myCarousel" class="carousel slide mt-5 shadow rounded overflow-hidden" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="image1.jpg" class="d-block w-100" alt="Hình ảnh 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="image2.jpg" class="d-block w-100" alt="Hình ảnh 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="image3.jpg" class="d-block w-100" alt="Hình ảnh 3">
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-house-chimney me-1"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-info-circle me-1"></i> About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-cogs me-1"></i> Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-envelope me-1"></i> Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- BƯỚC 3: TẠO HERO SECTION VỚI CAROUSEL -->
-    <div id="heroCarousel" class="carousel slide shadow" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="image1.jpg" class="d-block w-100" alt="Slide 1">
-                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
-                    <h3 class="fw-bold">Giải Pháp Công Nghệ Đột Phá</h3>
-                    <p>Khám phá môi trường phát triển hiện đại và chuyên nghiệp.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="image2.jpg" class="d-block w-100" alt="Slide 2">
-                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
-                    <h3 class="fw-bold">Đội Ngũ Sáng Tạo & Đam Mê</h3>
-                    <p>Đồng hành cùng doanh nghiệp kiến tạo những giá trị đích thực.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
     </div>
 
-    <!-- BƯỚC 4: THÊM SECTION VỚI FLEXBOX -->
-    <div class="d-flex justify-content-center align-items-center bg-light py-5 border-bottom shadow-sm">
-        <h2 class="fw-bold text-primary text-center px-3 mb-0">
-            <i class="fas fa-hand-sparkles me-2"></i> Chào mừng đến với trang web của chúng tôi!
-        </h2>
-    </div>
-
-    <!-- BƯỚC 5: TẠO CONTACT FORM VỚI BOOTSTRAP FORM -->
-    <div class="container my-5">
-        <div class="card p-4 shadow-sm border-0 rounded-4 contact-card bg-white">
-            <h3 class="text-center fw-bold mb-4 text-dark"><i class="fas fa-paper-plane text-primary me-2"></i> Liên Hệ Với Chúng Tôi</h3>
+    <!-- BƯỚC 6: TẠO FORM LIÊN HỆ -->
+    <div class="container mt-5">
+        <div class="card p-4 shadow-sm border-0 rounded-4 bg-white" style="max-width: 700px; margin: 0 auto;">
+            <h4 class="fw-bold mb-3 text-center text-primary">Biểu Mẫu Liên Hệ</h4>
             <form>
                 <div class="mb-3">
-                    <label for="name" class="form-label fw-semibold">Tên của bạn</label>
-                    <input type="text" class="form-control" id="name" placeholder="Nhập tên" required>
+                    <label for="name" class="form-label fw-semibold">Họ và tên</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên" required>
                 </div>
+
                 <div class="mb-3">
                     <label for="email" class="form-label fw-semibold">Email</label>
                     <input type="email" class="form-control" id="email" placeholder="Nhập email" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
-                    <i class="fas fa-paper-plane me-1"></i> Gửi
+
+                <div class="mb-3">
+                    <label for="message" class="form-label fw-semibold">Nội dung</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Nhập nội dung" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary px-4 py-2 fw-semibold">
+                    <i class="fas fa-paper-plane"></i> Gửi
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4 mt-5">
-        <div class="container">
-            <p class="mb-1">&copy; 2026 MyWebsite. All rights reserved.</p>
-            <small class="text-secondary">Bootstrap 5.3.3 &bull; Carousel &bull; Flexbox &bull; Font Awesome</small>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5.3.3 Bundle JS -->
+    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
