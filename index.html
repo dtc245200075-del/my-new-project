@@ -3,33 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid Layout</title>
+    <title>Bố cục Responsive với CSS Grid</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+
+    <div class="grid-container">
+        <!-- 1. Header: Tiêu đề trang -->
         <header class="header">
-            <h1>Header</h1>
-            <p>Trang web mẫu sử dụng CSS Grid Layout</p>
+            <h1>My Website Portal</h1>
+            <p>Hệ thống tin tức và học tập trực tuyến</p>
         </header>
-        <nav class="sidebar">
-            <h3>Sidebar</h3>
+
+        <!-- 2. Navigation: Chứa menu điều hướng -->
+        <nav class="navigation">
             <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Khóa học</a></li>
-                <li><a href="#">Tài liệu</a></li>
-                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#news">Tin tức</a></li>
+                <li><a href="#courses">Khóa học</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
             </ul>
         </nav>
-        <main class="content">
-            <h2>Nội dung chính</h2>
-            <p>Đây là khu vực nội dung chính của trang web, được bố cục tự động bằng <code>grid-template-areas</code> trong CSS Grid.</p>
-            <p>Bố cục chia 3 phần chính gồm Header, Main Content (kết hợp Sidebar 1 phần và Content 3 phần) cùng với Footer cố định cuối trang.</p>
-            <p>Khi màn hình thu nhỏ dưới 768px (Mobile), bố cục sẽ tự động chuyển thành dạng 1 cột dọc thông minh và tiện dụng.</p>
+
+        <!-- 3. Sidebar: Nội dung phụ (tin tức, quảng cáo, widget) -->
+        <aside class="sidebar">
+            <h3>Danh mục &amp; Tiện ích</h3>
+            <ul class="sidebar-links">
+                <li><a href="#">Lập trình Web Frontend</a></li>
+                <li><a href="#">Lập trình Backend Java</a></li>
+                <li><a href="#">Cơ sở dữ liệu SQL</a></li>
+                <li><a href="#">Kỹ năng phỏng vấn IT</a></li>
+            </ul>
+
+            <div class="widget">
+                <h4>Tin tức nổi bật</h4>
+                <p>Xu hướng công nghệ AI và ứng dụng vào phát triển phần mềm năm 2026.</p>
+            </div>
+            <div class="widget">
+                <h4>Quảng cáo</h4>
+                <p>Ưu đãi học bổng lên đến 30% cho tân học viên đăng ký sớm trong tháng.</p>
+            </div>
+        </aside>
+
+        <!-- 4. Main Content: Khu vực hiển thị nội dung chính -->
+        <main class="main-content">
+            <h2>Bài viết mới nhất: Làm chủ bố cục Responsive với CSS Grid</h2>
+            <div class="article-meta">Đăng ngày: 20/10/2026 | Tác giả: Ban Chuyên môn CodeGym</div>
+            
+            <p>
+                CSS Grid là một trong những công cụ dàn trang hai chiều mạnh mẽ nhất trong CSS hiện đại. Nhờ vào các thuộc tính như <code>grid-template-areas</code>, <code>grid-template-columns</code> và <code>gap</code>, lập trình viên có thể dễ dàng thiết lập bố cục trang web phức tạp một cách rõ ràng và ngắn gọn.
+            </p>
+
+            <p>
+                Ở chế độ màn hình máy tính (Desktop), giao diện được chia thành các phân vùng: Header và Menu kéo dài trên cùng, cột Sidebar nằm bên trái (260px) và Main Content chiếm trọn không gian còn lại (1fr), kết thúc bằng Footer ở chân trang.
+            </p>
+
+            <p>
+                Khi chuyển sang chế độ thiết bị di động (Mobile với độ rộng màn hình &le; 768px), các phân vùng sẽ tự động xếp chồng theo một cột dọc duy nhất: Header &rarr; Navigation &rarr; Main Content &rarr; Sidebar &rarr; Footer, giúp người dùng lướt web thuận tiện mà không bị tràn màn hình.
+            </p>
         </main>
+
+        <!-- 5. Footer: Hiển thị thông tin cuối trang -->
         <footer class="footer">
-            <p>&copy; 2026 CodeGym. All rights reserved. Footer</p>
+            <p>&copy; 2026 CodeGym. Bản quyền thuộc về Hệ thống Đào tạo Lập trình. Mọi quyền được bảo lưu.</p>
         </footer>
     </div>
+
 </body>
 </html>

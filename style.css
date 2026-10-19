@@ -5,119 +5,203 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #334155;
+    line-height: 1.6;
 }
 
-.container {
+/* 1. Thiết lập CSS Grid Layout cho Desktop */
+.grid-container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
         "header header"
+        "nav nav"
         "sidebar content"
         "footer footer";
-    height: 100vh;
+    min-height: 100vh;
 }
 
+/* Header */
 .header {
     grid-area: header;
-    background-color: #333;
-    color: white;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    color: #ffffff;
     text-align: center;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
 .header p {
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
+/* Navigation */
+.navigation {
+    grid-area: nav;
+    background-color: #0f172a;
+    padding: 10px 20px;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.navigation ul li a {
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navigation ul li a:hover {
+    background-color: #1e293b;
+    color: #38bdf8;
+}
+
+/* Sidebar */
 .sidebar {
     grid-area: sidebar;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-right: 1px solid #ddd;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    padding: 25px 20px;
 }
 
 .sidebar h3 {
-    font-size: 18px;
+    font-size: 16px;
+    color: #1e3a8a;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 8px;
     margin-bottom: 12px;
-    color: #222;
 }
 
-.sidebar ul {
+.sidebar-links {
     list-style: none;
+    margin-bottom: 20px;
 }
 
-.sidebar ul li {
+.sidebar-links li {
     margin-bottom: 10px;
 }
 
-.sidebar ul li a {
+.sidebar-links li a {
+    color: #475569;
     text-decoration: none;
-    color: #007bff;
-    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s;
 }
 
-.sidebar ul li a:hover {
-    text-decoration: underline;
+.sidebar-links li a:hover {
+    color: #2563eb;
+    font-weight: 600;
 }
 
-.content {
+.widget {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+}
+
+.widget h4 {
+    color: #1d4ed8;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.widget p {
+    font-size: 13px;
+    color: #1e40af;
+    line-height: 1.4;
+}
+
+/* Main Content */
+.main-content {
     grid-area: content;
-    padding: 30px;
     background-color: #ffffff;
-    line-height: 1.6;
+    padding: 30px;
 }
 
-.content h2 {
+.main-content h2 {
     font-size: 22px;
-    margin-bottom: 15px;
-    color: #222;
+    color: #0f172a;
+    margin-bottom: 8px;
 }
 
-.content p {
-    margin-bottom: 15px;
-    color: #555;
+.article-meta {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 10px;
 }
 
-.content code {
-    background-color: #eee;
+.main-content p {
+    font-size: 15px;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.main-content code {
+    background-color: #f1f5f9;
+    color: #ef4444;
     padding: 2px 6px;
-    border-radius: 4px;
-    color: #d63384;
+    border-radius: 3px;
 }
 
+/* Footer */
 .footer {
     grid-area: footer;
-    background-color: #333;
-    color: white;
+    background-color: #0f172a;
+    color: #94a3b8;
     text-align: center;
-    padding: 20px;
+    padding: 18px 20px;
+    border-top: 1px solid #1e293b;
+    font-size: 13.5px;
 }
 
-/* Bước 3: Làm Responsive với Media Queries */
-@media (max-width: 768px) {
-    .container {
+/* 2. Responsive cho Mobile (Màn hình <= 768px) - Xếp dọc theo chiều dọc */
+@media screen and (max-width: 768px) {
+    .grid-container {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-areas: 
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas:
             "header"
-            "sidebar"
+            "nav"
             "content"
+            "sidebar"
             "footer";
-        height: auto;
-        min-height: 100vh;
+        min-height: auto;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
 
     .sidebar {
         border-right: none;
-        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .main-content {
+        padding: 20px;
     }
 }
