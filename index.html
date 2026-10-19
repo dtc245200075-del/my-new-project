@@ -3,13 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bố cục bằng Float</title>
+    <title>Bố cục trang web bằng thẻ DIV và CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="left-column">Cột bên trái chứa nội dung chính</div>
-        <div class="right-column">Cột bên phải chứa sidebar</div>
+
+    <div id="main">
+        <!-- 1. Head: Logo và Banner -->
+        <div id="head">
+            <h1>LOGO &amp; BANNER</h1>
+        </div>
+
+        <!-- 2. Head-link: Menu liên kết đầu trang -->
+        <div id="head-link">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Students</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Left: Menu và liên kết bên trái -->
+        <div id="left">
+            <h3>Liên kết trái</h3>
+            <ul>
+                <li><a href="#">Tin tức mới</a></li>
+                <li><a href="#">Sự kiện tuần</a></li>
+                <li><a href="#">Thời khóa biểu</a></li>
+                <li><a href="#">Thư viện trực tuyến</a></li>
+                <li><a href="#">Góc sinh viên</a></li>
+            </ul>
+        </div>
+
+        <!-- 4. Content: Nội dung chính của trang -->
+        <div id="content">
+            <h2>Nội Dung Chính</h2>
+            <div class="news-block">
+                <h3>Hot News</h3>
+                <p>Chào mừng năm học mới với nhiều chương trình học bổng hấp dẫn dành cho sinh viên xuất sắc.</p>
+            </div>
+            <div class="news-block">
+                <h3>Photo Slide</h3>
+                <p>Bộ sưu tập hình ảnh các hoạt động ngoại khóa sôi nổi của câu lạc bộ tình nguyện.</p>
+            </div>
+            <div class="news-block">
+                <h3>News 1: Khởi nghiệp công nghệ</h3>
+                <p>Hội thảo định hướng nghề nghiệp và cơ hội việc làm ngành Công nghệ Thông tin năm 2026.</p>
+            </div>
+        </div>
+
+        <!-- 5. Right: Thông tin bên phải (Lịch, biểu đồ, bản đồ) -->
+        <div id="right">
+            <h3>Thông tin phải</h3>
+            <div class="widget">
+                <h4>Lịch sự kiện</h4>
+                <p>Thứ Hai: Khai mạc tuần lễ văn hóa sinh viên.</p>
+            </div>
+            <div class="widget">
+                <h4>Biểu đồ thống kê</h4>
+                <p>Tỷ lệ tốt nghiệp có việc làm đạt 98%.</p>
+            </div>
+            <div class="widget">
+                <h4>Bản đồ khuôn viên</h4>
+                <p>Khu giảng đường A1 - Trung tâm thư viện số.</p>
+            </div>
+        </div>
+
+        <!-- 6. Footer: Thông tin cuối trang -->
+        <div id="footer">
+            <p>&copy; 2026 Bản quyền thuộc về Trường Đại học Công nghệ. Mọi quyền được bảo lưu.</p>
+        </div>
     </div>
+
 </body>
 </html>
