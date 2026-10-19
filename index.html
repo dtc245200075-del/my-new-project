@@ -2,154 +2,23 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thực hành CSS Box-sizing và Box-shadow</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-            margin: 0;
-            padding: 30px;
-            color: #1e293b;
-        }
-
-        h1 {
-            text-align: center;
-            color: #0f172a;
-            margin-bottom: 30px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .section-card {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        h2 {
-            color: #2563eb;
-            margin-top: 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
-        }
-
-        .demo-row {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        /* 1. DEMO BOX-SIZING */
-        .box {
-            width: 220px;
-            padding: 20px;
-            border: 8px solid #3b82f6;
-            background-color: #dbeafe;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .content-box {
-            box-sizing: content-box;
-            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.25);
-        }
-
-        .border-box {
-            box-sizing: border-box;
-            background-color: #dcfce7;
-            border-color: #22c55e;
-            box-shadow: 0 8px 16px rgba(34, 197, 94, 0.25);
-        }
-
-        /* 2. DEMO BOX-SHADOW */
-        .shadow-box {
-            width: 180px;
-            height: 120px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            text-align: center;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .shadow-outer {
-            background-color: #ffffff;
-            box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.2);
-            color: #1e293b;
-        }
-
-        .shadow-inset {
-            background-color: #f1f5f9;
-            box-shadow: inset 5px 5px 12px rgba(0, 0, 0, 0.25), inset -5px -5px 12px #ffffff;
-            color: #3b82f6;
-        }
-
-        .shadow-glow {
-            background-color: #1e1e2f;
-            color: #38bdf8;
-            box-shadow: 0 0 20px #38bdf8;
-        }
-
-        .shadow-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #f8fafc;
-            box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.5), 0 6px 12px rgba(0, 0, 0, 0.15);
-            color: #ef4444;
-        }
-    </style>
+    <title>Mô hình hộp CSS - Box Model</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Thực hành CSS Box-sizing và Box-shadow</h1>
+    <div class="card">
+        <h3>Card 1</h3>
+        <p>box-sizing: content-box<br>Kích thước nội dung chuẩn, padding và border được cộng thêm vào ngoài.</p>
+    </div>
 
-        <!-- Phần 1: Box-sizing -->
-        <div class="section-card">
-            <h2>1. So sánh Box-sizing (content-box vs border-box)</h2>
-            <p>Cả 2 hộp đều khai báo: <code>width: 220px; padding: 20px; border: 8px solid;</code></p>
-            <div class="demo-row">
-                <div class="box content-box">
-                    box-sizing: content-box;<br>
-                    <small style="color: #64748b;">(Tổng kích thước: 276px)</small>
-                </div>
-                <div class="box border-box">
-                    box-sizing: border-box;<br>
-                    <small style="color: #15803d;">(Tổng kích thước: 220px cố định)</small>
-                </div>
-            </div>
-        </div>
+    <div class="card">
+        <h3>Card 2</h3>
+        <p>box-sizing: border-box<br>Kích thước bao gồm cả padding và border bên trong chiều rộng 280px.</p>
+    </div>
 
-        <!-- Phần 2: Box-shadow -->
-        <div class="section-card">
-            <h2>2. Các kiểu đổ bóng Box-shadow</h2>
-            <div class="demo-row">
-                <div class="shadow-box shadow-outer">
-                    Bóng ngoài<br>(Drop Shadow)
-                </div>
-                <div class="shadow-box shadow-inset">
-                    Bóng chìm<br>(Inset Shadow)
-                </div>
-                <div class="shadow-box shadow-glow">
-                    Bóng phát sáng<br>(Neon Glow)
-                </div>
-                <div class="shadow-box shadow-circle">
-                    Tròn 50% & Inset
-                </div>
-            </div>
-        </div>
+    <div class="card">
+        <h3>Card 3</h3>
+        <p>box-sizing: border-box<br>Kích thước bao gồm cả padding và border bên trong chiều rộng 280px.</p>
     </div>
 </body>
 </html>
