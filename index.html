@@ -3,72 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bố cục Responsive với CSS Grid</title>
+    <title>Thực hành thuộc tính flex-wrap trong CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="grid-container">
-        <!-- 1. Header: Tiêu đề trang -->
-        <header class="header">
-            <h1>My Website Portal</h1>
-            <p>Hệ thống tin tức và học tập trực tuyến</p>
-        </header>
+    <h1>THỰC HÀNH THUỘC TÍNH CSS FLEX-WRAP</h1>
 
-        <!-- 2. Navigation: Chứa menu điều hướng -->
-        <nav class="navigation">
-            <ul>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#news">Tin tức</a></li>
-                <li><a href="#courses">Khóa học</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </nav>
-
-        <!-- 3. Sidebar: Nội dung phụ (tin tức, quảng cáo, widget) -->
-        <aside class="sidebar">
-            <h3>Danh mục &amp; Tiện ích</h3>
-            <ul class="sidebar-links">
-                <li><a href="#">Lập trình Web Frontend</a></li>
-                <li><a href="#">Lập trình Backend Java</a></li>
-                <li><a href="#">Cơ sở dữ liệu SQL</a></li>
-                <li><a href="#">Kỹ năng phỏng vấn IT</a></li>
-            </ul>
-
-            <div class="widget">
-                <h4>Tin tức nổi bật</h4>
-                <p>Xu hướng công nghệ AI và ứng dụng vào phát triển phần mềm năm 2026.</p>
-            </div>
-            <div class="widget">
-                <h4>Quảng cáo</h4>
-                <p>Ưu đãi học bổng lên đến 30% cho tân học viên đăng ký sớm trong tháng.</p>
-            </div>
-        </aside>
-
-        <!-- 4. Main Content: Khu vực hiển thị nội dung chính -->
-        <main class="main-content">
-            <h2>Bài viết mới nhất: Làm chủ bố cục Responsive với CSS Grid</h2>
-            <div class="article-meta">Đăng ngày: 20/10/2026 | Tác giả: Ban Chuyên môn CodeGym</div>
-            
-            <p>
-                CSS Grid là một trong những công cụ dàn trang hai chiều mạnh mẽ nhất trong CSS hiện đại. Nhờ vào các thuộc tính như <code>grid-template-areas</code>, <code>grid-template-columns</code> và <code>gap</code>, lập trình viên có thể dễ dàng thiết lập bố cục trang web phức tạp một cách rõ ràng và ngắn gọn.
-            </p>
-
-            <p>
-                Ở chế độ màn hình máy tính (Desktop), giao diện được chia thành các phân vùng: Header và Menu kéo dài trên cùng, cột Sidebar nằm bên trái (260px) và Main Content chiếm trọn không gian còn lại (1fr), kết thúc bằng Footer ở chân trang.
-            </p>
-
-            <p>
-                Khi chuyển sang chế độ thiết bị di động (Mobile với độ rộng màn hình &le; 768px), các phân vùng sẽ tự động xếp chồng theo một cột dọc duy nhất: Header &rarr; Navigation &rarr; Main Content &rarr; Sidebar &rarr; Footer, giúp người dùng lướt web thuận tiện mà không bị tràn màn hình.
-            </p>
-        </main>
-
-        <!-- 5. Footer: Hiển thị thông tin cuối trang -->
-        <footer class="footer">
-            <p>&copy; 2026 CodeGym. Bản quyền thuộc về Hệ thống Đào tạo Lập trình. Mọi quyền được bảo lưu.</p>
-        </footer>
+    <!-- Bộ điều khiển tương tác trực tiếp -->
+    <div class="interactive-box">
+        <h2>Khu vực thử nghiệm tương tác: Click để đổi giá trị flex-wrap</h2>
+        <div class="btn-group">
+            <button onclick="setWrap('wrap')" id="btn-wrap" class="active">flex-wrap: wrap</button>
+            <button onclick="setWrap('nowrap')" id="btn-nowrap">flex-wrap: nowrap</button>
+            <button onclick="setWrap('wrap-reverse')" id="btn-wrap-reverse">flex-wrap: wrap-reverse</button>
+            <button onclick="setWrap('initial')" id="btn-initial">flex-wrap: initial</button>
+        </div>
+        <p class="current-value">Giá trị hiện tại: <strong id="val-display">flex-wrap: wrap;</strong></p>
+        <div class="container" id="demo-container">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+        </div>
     </div>
 
+    <!-- Bảng so sánh trực quan cả 4 giá trị -->
+    <div class="comparison-grid">
+        <!-- 1. wrap -->
+        <div class="card">
+            <h3>1. flex-wrap: wrap</h3>
+            <p class="desc">Cho phép các Flex Items tự động xuống dòng theo hướng thuận (từ trên xuống dưới).</p>
+            <div class="container-demo wrap">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+            </div>
+        </div>
+
+        <!-- 2. nowrap -->
+        <div class="card">
+            <h3>2. flex-wrap: nowrap (Mặc định)</h3>
+            <p class="desc">Không cho phép xuống dòng, tất cả các Items bị ép nằm trên cùng 1 hàng.</p>
+            <div class="container-demo nowrap">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+            </div>
+        </div>
+
+        <!-- 3. wrap-reverse -->
+        <div class="card">
+            <h3>3. flex-wrap: wrap-reverse</h3>
+            <p class="desc">Cho phép xuống dòng nhưng đảo ngược trục phụ Cross Axis (dòng sau nằm bên trên dòng trước).</p>
+            <div class="container-demo wrap-reverse">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+            </div>
+        </div>
+
+        <!-- 4. initial -->
+        <div class="card">
+            <h3>4. flex-wrap: initial</h3>
+            <p class="desc">Đưa thuộc tính trở về giá trị mặc định của CSS (tương đương với nowrap).</p>
+            <div class="container-demo initial">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setWrap(value) {
+            const container = document.getElementById('demo-container');
+            const display = document.getElementById('val-display');
+            container.style.flexWrap = value;
+            display.innerText = 'flex-wrap: ' + value + ';';
+            
+            document.querySelectorAll('.btn-group button').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + value).classList.add('active');
+        }
+    </script>
 </body>
 </html>
