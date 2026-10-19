@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới Thiệu Công Ty - Doanh Nghiệp</title>
+    <title>Bootstrap Containers & Grid System - Layout Responsive</title>
     <!-- Bootstrap 5.3.0 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Google Fonts -->
@@ -12,175 +12,172 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
     <!-- ========================================================
-         BƯỚC 2.2: NAVBAR (Thanh điều hướng)
+         1. HEADER: Chứa tiêu đề trang web
          ======================================================== -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+    <header class="bg-primary text-white text-center py-4 shadow-sm page-header">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">
-                <span class="brand-icon">&#9670;</span> Doanh Nghiệp
+            <h1 class="fw-bold mb-1">Bố cục Web Responsive</h1>
+            <p class="lead mb-0 fs-6 text-white-50">Thực hành Bootstrap Containers & Grid System</p>
+        </div>
+    </header>
+
+    <!-- ========================================================
+         2. NAVBAR: Menu điều hướng với Bootstrap Navbar có Dropdown
+         ======================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 text-info" href="#">
+                <span>&#9670;</span> WebResponsive
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active fw-semibold px-3" aria-current="page" href="#">Trang Chủ</a>
+                        <a class="nav-link active px-3" aria-current="page" href="#">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="#about">Về Chúng Tôi</a>
+                        <a class="nav-link px-3" href="#main-content">Bài viết</a>
+                    </li>
+                    <!-- Dropdown Menu -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Chuyên mục
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark shadow">
+                            <li><a class="dropdown-item py-2" href="#">💻 Lập trình Web</a></li>
+                            <li><a class="dropdown-item py-2" href="#">⚡ Bootstrap 5 Grid</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2" href="#">📱 Thiết kế Responsive</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="#services">Dịch Vụ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href="#contact">Liên Hệ</a>
+                        <a class="nav-link px-3" href="#sidebar">Thông tin phụ</a>
                     </li>
                 </ul>
+                <div class="d-flex">
+                    <span class="badge bg-secondary-subtle text-light border border-secondary px-3 py-2 rounded-pill">
+                        Desktop: 2 Cột | Mobile: 1 Cột
+                    </span>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- ========================================================
-         BƯỚC 2.3: HERO SECTION
+         3. BOOTSTRAP CONTAINER & GRID SYSTEM (row, col-xx)
+         - Trên desktop (>=992px): Main Content (col-lg-8 / col-md-8), Sidebar (col-lg-4 / col-md-4)
+         - Trên mobile (<992px): Sidebar nằm dưới Main Content (col-12)
          ======================================================== -->
-    <header class="bg-primary text-white text-center py-5 hero-section">
-        <div class="container py-4">
-            <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-semibold mb-3 shadow-sm">
-                Giải pháp công nghệ số 2024
-            </span>
-            <h1 class="display-4 fw-bold mb-3">Chào mừng đến với Công Ty Chúng Tôi</h1>
-            <p class="lead mb-4 mx-auto" style="max-width: 650px;">
-                Chúng tôi cung cấp các giải pháp chuyên nghiệp cho doanh nghiệp của bạn
-            </p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#services" class="btn btn-light btn-lg px-4 fw-semibold shadow-sm">Tìm Hiểu Ngay</a>
-                <a href="#contact" class="btn btn-outline-light btn-lg px-4 fw-semibold">Liên Hệ Tư Vấn</a>
-            </div>
-        </div>
-    </header>
+    <div class="container my-4 flex-grow-1">
+        <div class="row g-4">
+            
+            <!-- MAIN CONTENT: col-12 trên mobile, col-lg-8 trên desktop -->
+            <main id="main-content" class="col-12 col-lg-8 col-md-8">
+                <div class="card p-4 shadow-sm border-0 mb-4 bg-white rounded-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 rounded-pill">
+                            Cột chính: col-12 col-lg-8
+                        </span>
+                        <span class="text-muted small">Màn hình lớn: Chiếm 8/12 cột</span>
+                    </div>
+                    <h2 class="fw-bold text-dark mt-2">Nội dung chính của trang web (Main Content)</h2>
+                    <p class="text-secondary lead fs-6">
+                        Khu vực hiển thị nội dung chính của trang web được phân chia bằng hệ thống <strong>Bootstrap Grid System</strong>.
+                    </p>
+                    <hr class="my-3 text-muted">
+                    
+                    <h5 class="fw-semibold text-primary">Các yêu cầu kỹ thuật đã đáp ứng:</h5>
+                    <ul class="text-secondary ps-3 mb-3">
+                        <li class="mb-2"><strong>Sử dụng Bootstrap Container:</strong> Thẻ <code>.container</code> giới hạn chiều rộng nội dung tối đa và tự động căn giữa ở các độ phân giải màn hình.</li>
+                        <li class="mb-2"><strong>Hệ thống lưới Grid System:</strong> Sử dụng <code>.row</code> kết hợp với <code>col-12 col-lg-8</code> cho Main Content và <code>col-12 col-lg-4</code> cho Sidebar.</li>
+                        <li class="mb-2"><strong>Responsive trên Desktop (&ge;992px):</strong> Main Content và Sidebar hiển thị song song thành hai cột chuẩn tỷ lệ 8 : 4 (khoảng 66.7% - 33.3%).</li>
+                        <li class="mb-2"><strong>Responsive trên Mobile (&lt;992px):</strong> Sử dụng <code>col-12</code> giúp Sidebar tự động di chuyển xuống dưới nội dung chính, tạo trải nghiệm cuộn mượt mà trên di động.</li>
+                    </ul>
 
-    <!-- ========================================================
-         BƯỚC 2.4: ABOUT SECTION (Về chúng tôi)
-         ======================================================== -->
-    <section id="about" class="container py-5">
-        <div class="text-center mb-4">
-            <span class="text-primary fw-bold text-uppercase small tracking-wide">Giới thiệu tổng quan</span>
-            <h2 class="fw-bold mt-1">Về Chúng Tôi</h2>
-            <div class="divider mx-auto mb-3"></div>
-        </div>
-        <p class="text-center lead text-muted mx-auto" style="max-width: 780px;">
-            Công ty chúng tôi chuyên cung cấp các dịch vụ công nghệ, thiết kế website và tiếp thị kỹ thuật số.
-        </p>
-        <div class="row g-4 mt-3 text-center">
-            <div class="col-md-4">
-                <div class="about-stat p-3 bg-light rounded-3 border">
-                    <h3 class="fw-bold text-primary mb-1">500+</h3>
-                    <p class="text-secondary mb-0">Dự án hoàn thành</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="about-stat p-3 bg-light rounded-3 border">
-                    <h3 class="fw-bold text-primary mb-1">98%</h3>
-                    <p class="text-secondary mb-0">Khách hàng hài lòng</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="about-stat p-3 bg-light rounded-3 border">
-                    <h3 class="fw-bold text-primary mb-1">24/7</h3>
-                    <p class="text-secondary mb-0">Hỗ trợ kỹ thuật</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================================
-         BƯỚC 2.5: SERVICES SECTION (Dịch vụ)
-         ======================================================== -->
-    <section id="services" class="bg-light py-5">
-        <div class="container py-2">
-            <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase small tracking-wide">Danh mục giải pháp</span>
-                <h2 class="fw-bold mt-1">Dịch vụ của chúng tôi</h2>
-                <div class="divider mx-auto"></div>
-            </div>
-            <div class="row g-4">
-                <!-- Dịch vụ 1 -->
-                <div class="col-md-4 text-center">
-                    <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
-                        <div class="service-icon bg-primary-subtle text-primary rounded-circle mx-auto mb-3">
-                            💻
-                        </div>
-                        <h3 class="h4 fw-bold mb-2">Thiết kế Website</h3>
-                        <p class="text-muted">Thiết kế giao diện chuyên nghiệp và tối ưu hóa trải nghiệm người dùng.</p>
-                        <a href="#contact" class="btn btn-outline-primary btn-sm mt-auto align-self-center px-3 rounded-pill">Đăng ký dịch vụ</a>
+                    <div class="alert alert-info border-0 shadow-sm mb-0">
+                        📱 <strong>Thử nghiệm trực tiếp:</strong> Hãy thử thu nhỏ cửa sổ trình duyệt (hoặc ấn F12 chế độ di động) để quan sát Sidebar tự động rơi xuống bên dưới Main Content rất mượt mà.
                     </div>
                 </div>
 
-                <!-- Dịch vụ 2 -->
-                <div class="col-md-4 text-center">
-                    <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
-                        <div class="service-icon bg-success-subtle text-success rounded-circle mx-auto mb-3">
-                            📈
+                <!-- 2 Card tin tức phụ bên trong Main Content -->
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="card p-3 shadow-sm border-0 h-100 rounded-3 bg-white">
+                            <h5 class="fw-bold text-dark">Khám phá Containers</h5>
+                            <p class="text-muted small mb-2">Tìm hiểu sự khác nhau giữa container cố định và container-fluid tràn màn hình.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-auto align-self-start rounded-pill">Xem chi tiết &rarr;</a>
                         </div>
-                        <h3 class="h4 fw-bold mb-2">Marketing Online</h3>
-                        <p class="text-muted">Giải pháp tiếp thị số giúp doanh nghiệp của bạn phát triển.</p>
-                        <a href="#contact" class="btn btn-outline-success btn-sm mt-auto align-self-center px-3 rounded-pill">Đăng ký dịch vụ</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card p-3 shadow-sm border-0 h-100 rounded-3 bg-white">
+                            <h5 class="fw-bold text-dark">Làm chủ Breakpoints</h5>
+                            <p class="text-muted small mb-2">Cấu hình các breakpoint xs, sm, md, lg, xl, xxl một cách thông minh và tối ưu.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-auto align-self-start rounded-pill">Xem chi tiết &rarr;</a>
+                        </div>
                     </div>
                 </div>
+            </main>
 
-                <!-- Dịch vụ 3 -->
-                <div class="col-md-4 text-center">
-                    <div class="card p-4 h-100 service-card border-0 shadow-sm rounded-4">
-                        <div class="service-icon bg-warning-subtle text-warning-emphasis rounded-circle mx-auto mb-3">
-                            🎧
-                        </div>
-                        <h3 class="h4 fw-bold mb-2">Hỗ trợ khách hàng</h3>
-                        <p class="text-muted">Chúng tôi cam kết hỗ trợ khách hàng 24/7.</p>
-                        <a href="#contact" class="btn btn-outline-warning btn-sm mt-auto align-self-center px-3 rounded-pill">Đăng ký dịch vụ</a>
-                    </div>
+            <!-- SIDEBAR: col-12 trên mobile, col-lg-4 trên desktop -->
+            <aside id="sidebar" class="col-12 col-lg-4 col-md-4">
+                <!-- Widget 1: Giới thiệu Sidebar -->
+                <div class="card p-3 shadow-sm border-0 mb-4 bg-white rounded-3">
+                    <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle px-3 py-1 rounded-pill mb-2 align-self-start">
+                        Thanh bên: col-12 col-lg-4
+                    </span>
+                    <h4 class="fw-bold text-dark">Sidebar (Thông tin phụ)</h4>
+                    <p class="text-muted small mb-0">
+                        Hiển thị thông tin phụ. Trên desktop (màn hình lớn &ge;992px), sidebar nằm ở cột bên phải. Trên mobile, sidebar nằm bên dưới nội dung chính.
+                    </p>
                 </div>
-            </div>
+
+                <!-- Widget 2: Danh mục chuyên mục -->
+                <div class="card p-3 shadow-sm border-0 mb-4 bg-white rounded-3">
+                    <h5 class="fw-bold mb-3">📂 Chuyên mục bài viết</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            HTML5 & CSS3
+                            <span class="badge bg-primary rounded-pill">12</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            Bootstrap 5 Grid
+                            <span class="badge bg-primary rounded-pill">8</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            Responsive Layout
+                            <span class="badge bg-primary rounded-pill">15</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            Media Queries
+                            <span class="badge bg-primary rounded-pill">6</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Widget 3: Tiện ích hỗ trợ -->
+                <div class="card p-3 shadow-sm border-0 bg-white rounded-3">
+                    <h5 class="fw-bold mb-2">💡 Hỗ trợ & Liên hệ</h5>
+                    <p class="text-muted small mb-0">
+                        Hỗ trợ kỹ thuật 24/7 cho các thắc mắc về Bootstrap và CSS Responsive.
+                    </p>
+                </div>
+            </aside>
+
         </div>
-    </section>
+    </div>
 
     <!-- ========================================================
-         BƯỚC 2.6: CONTACT SECTION (Liên hệ)
+         4. FOOTER: Chứa thông tin bản quyền
          ======================================================== -->
-    <section id="contact" class="container py-5 text-center">
-        <div class="mb-4">
-            <span class="text-primary fw-bold text-uppercase small tracking-wide">Kết nối nhanh chóng</span>
-            <h2 class="fw-bold mt-1">Liên hệ với chúng tôi</h2>
-            <div class="divider mx-auto mb-3"></div>
-        </div>
-        <div class="row justify-content-center g-3">
-            <div class="col-md-4">
-                <div class="contact-box p-3 bg-white border rounded-3 shadow-sm">
-                    <div class="fs-4 text-primary mb-1">✉️</div>
-                    <p class="fw-bold mb-0">Email:</p>
-                    <a href="mailto:contact@company.com" class="text-decoration-none text-muted">contact@company.com</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contact-box p-3 bg-white border rounded-3 shadow-sm">
-                    <div class="fs-4 text-danger mb-1">📞</div>
-                    <p class="fw-bold mb-0">Hotline:</p>
-                    <a href="tel:0988123456" class="text-decoration-none text-muted fw-bold">0988 123 456</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================================
-         BƯỚC 2.7: FOOTER (Chân trang)
-         ======================================================== -->
-    <footer class="bg-dark text-white text-center py-4">
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
         <div class="container">
-            <p class="mb-1">&copy; 2024 Công Ty Chúng Tôi. All rights reserved.</p>
-            <small class="text-secondary">Trang giới thiệu doanh nghiệp xây dựng với Bootstrap 5</small>
+            <p class="mb-1">&copy; 2026 WebResponsive. Bản quyền thuộc về tác giả.</p>
+            <small class="text-secondary">Thiết kế chuẩn Bootstrap Containers & Grid System &bull; Responsive Design</small>
         </div>
     </footer>
 

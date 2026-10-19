@@ -1,34 +1,22 @@
-# GProject - Trang Giới Thiệu Doanh Nghiệp (Bootstrap 5)
+# GProject - Bố cục Web Responsive với Bootstrap Containers & Grid System
 
-Dự án thực hành xây dựng trang web **Giới thiệu Doanh nghiệp** chuyên nghiệp sử dụng thư viện **Bootstrap 5.3.0**.
+Dự án thực hành thiết kế bố cục trang web responsive sử dụng **Bootstrap 5.3.0 Containers & Grid System**.
 
-## 📌 Các thành phần chính của trang web:
-1. **Navbar (`.navbar.navbar-expand-lg.navbar-light.bg-light`)**:
-   - Thương hiệu: **Doanh Nghiệp**
-   - Menu điều hướng: **Trang Chủ**, **Về Chúng Tôi** (`#about`), **Dịch Vụ** (`#services`), **Liên Hệ** (`#contact`).
-   - Nút Hamburger Toggler mở menu trên thiết bị di động.
-2. **Hero Section (`<header class="bg-primary text-white text-center py-5">`)**:
-   - Tiêu đề: *Chào mừng đến với Công Ty Chúng Tôi*
-   - Khẩu hiệu: *Chúng tôi cung cấp các giải pháp chuyên nghiệp cho doanh nghiệp của bạn*
-   - Nút kêu gọi hành động: *Tìm Hiểu Ngay* (`btn btn-light`)
-3. **About Section (`<section id="about" class="container py-5">`)**:
-   - Giới thiệu tổng quan về doanh nghiệp, dịch vụ công nghệ, thiết kế website và tiếp thị kỹ thuật số.
-4. **Services Section (`<section id="services" class="container py-5">`)**:
-   - Hệ thống lưới Bootstrap Grid chia 3 cột (`row`, `col-md-4 text-center`):
-     - 💻 **Thiết kế Website**: Thiết kế giao diện chuyên nghiệp và tối ưu hóa trải nghiệm người dùng.
-     - 📈 **Marketing Online**: Giải pháp tiếp thị số giúp doanh nghiệp của bạn phát triển.
-     - 🎧 **Hỗ trợ khách hàng**: Chúng tôi cam kết hỗ trợ khách hàng 24/7.
-5. **Contact Section (`<section id="contact" class="container py-5 text-center">`)**:
-   - Kết nối thông tin liên hệ:
-     - ✉️ Email: `contact@company.com`
-     - 📞 Hotline: `0988 123 456`
-6. **Footer (`<footer class="bg-dark text-white text-center py-3">`)**:
-   - Bản quyền: `&copy; 2024 Công Ty Chúng Tôi. All rights reserved.`
+## 📌 Các thành phần chính và yêu cầu kỹ thuật:
+1. **Header**: Chứa tiêu đề trang web (`.bg-primary.text-white.text-center.py-4`).
+2. **Navbar**: Thanh điều hướng Bootstrap Navbar tích hợp menu thả xuống (Dropdown) và nút Hamburger trên di động.
+3. **Bootstrap Container**: Sử dụng thẻ `.container` giới hạn chiều rộng nội dung, tự động căn giữa theo từng breakpoint responsive.
+4. **Hệ thống lưới Bootstrap Grid System (`row`, `col-xx`)**:
+   - **Trên Desktop (≥992px):** Chia làm 2 cột chính nằm song song:
+     - **Main Content**: Chiếm 8 cột (`col-lg-8` / `col-md-8`).
+     - **Sidebar**: Chiếm 4 cột (`col-lg-4` / `col-md-4`).
+   - **Trên Mobile (<992px):** Cả hai cột sử dụng `col-12`, giúp Sidebar tự động chuyển xuống bên dưới Main Content, hiển thị dạng 1 cột tối ưu cho màn hình nhỏ.
+5. **Footer**: Chứa thông tin bản quyền cuối trang (`.bg-dark.text-white.text-center.py-4`).
 
-## 📁 Danh sách tệp tin:
-- `index.html`: Giao diện chính tích hợp đầy đủ các phần với thiết kế hiện đại, responsive.
-- `company-intro-exact.html`: Mã nguồn chuẩn 100% từng dòng theo đề bài hướng dẫn.
-- `style.css`: Quy tắc định dạng CSS tùy biến giao diện.
-- `company-intro-sample.png`: Ảnh chụp giao diện theo đúng đề bài mẫu.
-- `company-intro-desktop.png`: Ảnh chụp giao diện Desktop chuẩn.
-- `company-intro-mobile.png`: Ảnh chụp giao diện Mobile responsive.
+## 📁 Danh sách tệp tin trong repository:
+- `index.html`: Bố cục hoàn chỉnh với thiết kế thẩm mỹ cao, chuẩn Bootstrap 5.
+- `grid-layout-exact.html`: Mã nguồn chuẩn từng dòng theo đúng khung đề bài hướng dẫn.
+- `style.css`: Quy tắc tùy biến CSS giao diện.
+- `containers-grid-sample.png`: Ảnh chụp giao diện khung bài làm chuẩn đề bài.
+- `containers-grid-desktop.png`: Ảnh chụp giao diện Desktop (2 cột: 8 - 4).
+- `containers-grid-mobile.png`: Ảnh chụp giao diện Mobile (1 cột: 12).
