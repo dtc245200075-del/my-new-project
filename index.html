@@ -3,63 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox Layout - Responsive Web Design</title>
+    <title>Bootstrap Navbar - Thực hành Bootstrap 5</title>
+    <!-- Bootstrap 5.3.0 CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Google Fonts & Custom CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Header</h1>
-            <p class="header-desc">Bố cục trang web Responsive bằng CSS Flexbox</p>
-        </header>
 
-        <nav class="nav">
-            <span class="nav-title">Navigation:</span>
-            <a href="#home">Trang chủ</a>
-            <a href="#about">Giới thiệu</a>
-            <a href="#services">Dịch vụ</a>
-            <a href="#blog">Bài viết</a>
-            <a href="#contact">Liên hệ</a>
-        </nav>
+    <!-- ========================================================
+         THANH ĐIỀU HƯỚNG BOOTSTRAP NAVBAR (CHUẨN THEO ĐỀ BÀI)
+         ======================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold fs-4 text-primary-emphasis" href="#">
+                <span class="text-primary">&#9670;</span> MyWebsite
+            </a>
+            
+            <!-- Nút Toggler cho giao diện di động (Mobile Menu Button) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Danh sách menu điều hướng -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active px-3" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#about">About</a>
+                    </li>
+                    <!-- Dropdown Menu: Services -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark shadow">
+                            <li><a class="dropdown-item py-2" href="#web-design">🎨 Web Design</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2" href="#seo">📈 SEO</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <div class="main-container">
-            <main class="content">
-                <h2>Main Content</h2>
-                <span class="badge badge-content">flex: 3</span>
-                <p>Khu vực hiển thị nội dung chính của trang web. Khi ở chế độ Desktop, khu vực này chiếm 3 phần độ rộng của khung chứa <code>main-container</code>.</p>
-                
-                <div class="article-box">
-                    <h3>Ưu điểm của CSS Flexbox trong Responsive Layout:</h3>
-                    <ul>
-                        <li><strong>Dễ dàng căn chỉnh:</strong> Linh hoạt xếp các phần tử theo hàng (row) hoặc cột (column).</li>
-                        <li><strong>Tự động co giãn:</strong> Các thuộc tính <code>flex: 3</code> và <code>flex: 1</code> giúp phân chia tỷ lệ vàng 75% - 25% trực quan và chuẩn xác.</li>
-                        <li><strong>Responsive tức thì:</strong> Sử dụng Media Query kết hợp <code>flex-direction: column</code> cho thiết bị di động (màn hình &le; 768px).</li>
-                    </ul>
+    <!-- NỘI DUNG MINH HỌA TRANG WEB -->
+    <main class="container my-5">
+        <!-- Hero Section -->
+        <div class="p-5 mb-4 bg-body-tertiary rounded-4 shadow-sm border text-center">
+            <div class="container-fluid py-4">
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3">Bootstrap 5 Component</span>
+                <h1 class="display-5 fw-bold text-dark">Thực hành Bootstrap Navbar</h1>
+                <p class="col-md-8 mx-auto fs-5 text-muted">
+                    Thanh điều hướng chuyên nghiệp được xây dựng bằng Bootstrap 5. Hỗ trợ đầy đủ menu responsive, nút Hamburger trên di động và danh mục thả xuống (Dropdown).
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#demo" class="btn btn-primary btn-lg px-4">Khám phá tính năng</a>
+                    <a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank" class="btn btn-outline-secondary btn-lg px-4">Tài liệu Bootstrap</a>
                 </div>
-            </main>
-
-            <aside class="sidebar">
-                <h3>Sidebar</h3>
-                <span class="badge badge-sidebar">flex: 1</span>
-                <p>Khu vực nội dung phụ, chứa các thông tin bổ sung, tin mới hoặc quảng cáo.</p>
-                <div class="sidebar-widget">
-                    <h4>📌 Tin tức mới</h4>
-                    <p>Khám phá các kỹ thuật dàn trang CSS hiện đại.</p>
-                </div>
-                <div class="sidebar-widget">
-                    <h4>📱 Chế độ Responsive</h4>
-                    <p>Màn hình &le; 768px: Sidebar sẽ tự động chuyển xuống bên dưới Content.</p>
-                </div>
-            </aside>
+            </div>
         </div>
 
-        <footer class="footer">
-            <p>Footer</p>
-            <small>&copy; 2026 Responsive Web Layout với CSS Flexbox | Thiết kế tối ưu cho Desktop & Mobile</small>
-        </footer>
-    </div>
+        <!-- Tính năng & Giải thích -->
+        <div class="row g-4" id="demo">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 bg-white p-3 rounded-3">
+                    <div class="card-body">
+                        <div class="feature-icon bg-primary text-white rounded-3 mb-3 d-inline-flex p-3">
+                            🖥️
+                        </div>
+                        <h4 class="card-title fw-bold">Giao diện Desktop</h4>
+                        <p class="card-text text-secondary">
+                            Sử dụng <code>.navbar-expand-lg</code> giúp thanh điều hướng tự động trải dài theo hàng ngang trên màn hình máy tính lớn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 bg-white p-3 rounded-3">
+                    <div class="card-body">
+                        <div class="feature-icon bg-success text-white rounded-3 mb-3 d-inline-flex p-3">
+                            📱
+                        </div>
+                        <h4 class="card-title fw-bold">Responsive Mobile</h4>
+                        <p class="card-text text-secondary">
+                            Nút <code>.navbar-toggler</code> kết hợp với <code>data-bs-toggle="collapse"</code> giúp thu gọn menu thành nút 3 gạch tiện lợi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 bg-white p-3 rounded-3">
+                    <div class="card-body">
+                        <div class="feature-icon bg-warning text-dark rounded-3 mb-3 d-inline-flex p-3">
+                            📂
+                        </div>
+                        <h4 class="card-title fw-bold">Menu Thả Xuống</h4>
+                        <p class="card-text text-secondary">
+                            Mục <strong>Services</strong> tích hợp <code>.dropdown-menu</code> chứa danh mục con (Web Design, SEO) hoạt động mượt mà nhờ Bootstrap Bundle JS.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p class="mb-1">&copy; 2026 MyWebsite - Bài thực hành Bootstrap Navbar chuyên nghiệp</p>
+        <small class="text-secondary">Xây dựng với Bootstrap 5.3.0 &bull; Responsive Design</small>
+    </footer>
+
+    <!-- Bootstrap 5.3.0 JavaScript Bundle (bao gồm Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
