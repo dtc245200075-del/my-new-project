@@ -1,42 +1,21 @@
-# GProject - Tối Ưu Hóa CSS Bằng SASS Variables & Mixins
+# GProject - Tái Cấu Trúc Responsive Grid Bằng SASS
 
-Dự án thực hành tối ưu hóa CSS bằng **SASS Variables** và **Mixins**, giúp giảm lặp code, kiểm soát giao diện tập trung và nâng cao tính tái sử dụng.
+Dự án bài tập: Tái cấu trúc mã nguồn HTML & CSS của repository **[codegym-vn/responsive-grid](https://github.com/codegym-vn/responsive-grid)** sang kiến trúc **SASS/SCSS** chuẩn mực, linh hoạt và dễ bảo trì.
 
 ---
 
-## 🎯 1. So Sánh Trước & Sau Khi Tối Ưu Hóa
+## 🌟 1. Điểm Cải Tiến Khi Chuyển Sang SASS
 
-### 🔹 File CSS ban đầu (trước tối ưu):
-```css
-h1 {
-  font-size: 32px;
-  color: #222;
-}
-
-h2 {
-  font-size: 28px;
-  color: #222;
-}
-
-.button {
-  background: red;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-.card {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-```
-
-### 🔹 Sau khi tối ưu bằng SASS:
-- Các giá trị màu sắc, font chữ, khoảng cách và đổ bóng được chuyển thành **Biến SASS** trong `abstracts/_variables.scss`.
-- Các khối CSS lặp lại (nút bấm, hộp card) được đóng gói thành **Mixins** trong `abstracts/_mixins.scss`.
-- Phân chia module rõ ràng theo cấu trúc 7-1 pattern tinh gọn.
+1. **Loại bỏ hoàn toàn CSS nội tuyến (`inline styles`)**:
+   - Trước: Toàn bộ màu nền, chiều cao, viền và độ rộng được nhúng trực tiếp trong thuộc tính `style="..."`.
+   - Sau: Được trừu tượng hóa thành các class ngữ nghĩa rõ ràng: `.header-bar`, `.sidebar-menu`, `.content-panel`, `.footer-bar`, `.guide-grid`.
+2. **Sử dụng Biến SASS (`$variables`)**:
+   - Quản lý tập trung số lượng cột (`$grid-columns: 12`), bảng màu sắc chuẩn (`$header-color: #9933cc`, `$sidebar-color: #33b5e5`, `$footer-color: #0099cc`), và chiều cao từng hàng.
+3. **Sử dụng Mixins & Vòng lặp `@for`**:
+   - Tự động sinh 12 class lưới `.col-1` đến `.col-12` bằng vòng lặp `@for $i from 1 through 12` kết hợp mixin `@include grid-column($i, 12)`.
+   - Tái sử dụng mixin `@mixin clearfix` để làm sạch luồng float của các cột.
+4. **Cấu trúc module SASS chuyên nghiệp**:
+   - Chia tách rõ ràng giữa biến (`_variables.scss`), mixin (`_mixins.scss`) và hệ thống lưới (`_grid-system.scss`).
 
 ---
 
@@ -44,103 +23,77 @@ h2 {
 
 ```text
 GProject/
-├── abstracts/
-│   ├── _variables.scss       # Khai báo biến: $primary-color, $text-color, $font-large, $font-medium, $padding-standard, $box-shadow-default
-│   └── _mixins.scss          # Khai báo mixin: button-style($bg-color), box-style
-├── base/
-│   ├── _global.scss          # Định dạng chung cho body
-│   └── _typography.scss      # Định dạng h1, h2 sử dụng biến SASS
-├── layout/
-│   └── _container.scss       # Định dạng khung .container
-├── components/
-│   ├── _buttons.scss         # Áp dụng @include button-style($primary-color)
-│   └── _cards.scss           # Áp dụng @include box-style
-├── main.scss                 # Tập hợp toàn bộ partials
-├── main.css                  # File CSS sau khi biên dịch từ main.scss
-├── demo.html                 # Trang demo kiểm thử trực quan
-└── package.json              # Quản lý lệnh biên dịch SASS
+├── scss/
+│   └── grid/
+│       ├── _variables.scss       # Biến quản lý màu sắc, chiều cao, số cột lưới
+│       ├── _mixins.scss          # Mixin clearfix và grid-column tính toán độ rộng cột
+│       └── _grid-system.scss     # Hệ thống 12 cột và các component layout
+├── responsive-grid.scss          # File SCSS trung tâm import toàn bộ partials
+├── responsive-grid.css           # File CSS được biên dịch tự động từ SASS
+├── responsive_grid.htm           # Mã HTML cấu trúc chuẩn đã được dọn sạch inline CSS
+├── responsive-grid.html          # Bản sao HTML định dạng chuẩn
+├── package.json                  # Quản lý script biên dịch SASS
+└── README.md                     # Tài liệu hướng dẫn & giải thích dự án
 ```
 
 ---
 
 ## 📝 3. Chi Tiết Mã Nguồn SCSS
 
-### 🔸 `abstracts/_variables.scss`
+### 🔸 `scss/grid/_variables.scss`
 ```scss
-$primary-color: red;
-$text-color: #222;
-$font-large: 32px;
-$font-medium: 28px;
-$padding-standard: 10px 20px;
-$box-shadow-default: 2px 2px 10px rgba(0, 0, 0, 0.1);
+$grid-columns: 12;
+$grid-border-color: grey;
+$grid-bg: #f1f1f1;
+$guide-border-color: #000000;
+
+$header-color: #9933cc;
+$sidebar-color: #33b5e5;
+$footer-color: #0099cc;
+$white: #ffffff;
+
+$header-height: 90px;
+$main-height: 230px;
+$footer-height: 50px;
+$guide-height: 370px;
 ```
 
-### 🔸 `abstracts/_mixins.scss`
+### 🔸 `scss/grid/_mixins.scss`
 ```scss
-@mixin button-style($bg-color) {
-  background: $bg-color;
-  color: white;
-  padding: $padding-standard;
-  border-radius: 5px;
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
-@mixin box-style {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: $box-shadow-default;
-}
-```
-
-### 🔸 `base/_typography.scss`
-```scss
-h1 {
-  font-size: $font-large;
-  color: $text-color;
-}
-
-h2 {
-  font-size: $font-medium;
-  color: $text-color;
+@mixin grid-column($col-num, $total-cols: $grid-columns) {
+  width: calc(100% / #{$total-cols} * #{$col-num});
+  float: left;
 }
 ```
 
-### 🔸 `components/_buttons.scss`
+### 🔸 Sinh 12 cột tự động (`scss/grid/_grid-system.scss`):
 ```scss
-.button {
-  @include button-style($primary-color);
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include grid-column($i, $grid-columns);
+  }
 }
-```
-
-### 🔸 `components/_cards.scss`
-```scss
-.card {
-  @include box-style;
-}
-```
-
-### 🔸 `main.scss`
-```scss
-@import "abstracts/variables";
-@import "abstracts/mixins";
-@import "base/global";
-@import "base/typography";
-@import "layout/container";
-@import "components/buttons";
-@import "components/cards";
 ```
 
 ---
 
-## 🚀 4. Lệnh Biên Dịch & Chạy Thử Nghiệm
+## 🚀 4. Lệnh Biên Dịch & Chạy Dự Án
 
 ```bash
-# Biên dịch sang CSS:
-sass main.scss main.css
+# Biên dịch responsive-grid.scss ra CSS:
+sass responsive-grid.scss responsive-grid.css
 
-# Chế độ tự động theo dõi khi có thay đổi:
-sass main.scss main.css --watch
+# Chế độ theo dõi tự động:
+sass responsive-grid.scss responsive-grid.css --watch
 
-# Dùng npm scripts:
-npm run build-main
+# Dùng qua npm script:
+npm run build-grid
 ```

@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.gridcontainer {
+  width: 100%;
+  position: relative;
+}
+.gridcontainer::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.gridcontainer.guide-grid {
+  opacity: 0.1;
+}
+.gridcontainer.overlay-grid {
+  position: absolute;
+  opacity: 0.9;
+  width: auto;
+  left: 8px;
+  right: 10px;
+  top: 0;
+  z-index: 10;
+}
+
+.gridwrapper {
+  overflow: auto;
+  position: relative;
+  height: 250px;
+}
+.gridwrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.gridwrapper.header-wrapper {
+  height: 90px;
+}
+.gridwrapper.main-wrapper {
+  height: 230px;
+}
+.gridwrapper.footer-wrapper {
+  height: 50px;
+}
+.gridwrapper.guide-wrapper {
+  height: 370px;
+}
+
+.gridcontent {
+  width: calc(100% / 12);
+  margin: 0;
+  border-right: 1px solid grey;
+  height: 100%;
+  float: left;
+  background-color: #f1f1f1;
+}
+.gridcontent.no-border {
+  border: none;
+}
+.gridcontent.white-bg {
+  background-color: #ffffff;
+}
+.gridcontent.guide-cell {
+  background-color: #ffffff;
+  border-right: 1px solid #000000;
+}
+.gridcontent.guide-cell:first-child {
+  border-left: 1px solid #000000;
+}
+
+.col-1 {
+  width: calc(100% / 12 * 1);
+  float: left;
+}
+
+.col-2 {
+  width: calc(100% / 12 * 2);
+  float: left;
+}
+
+.col-3 {
+  width: calc(100% / 12 * 3);
+  float: left;
+}
+
+.col-4 {
+  width: calc(100% / 12 * 4);
+  float: left;
+}
+
+.col-5 {
+  width: calc(100% / 12 * 5);
+  float: left;
+}
+
+.col-6 {
+  width: calc(100% / 12 * 6);
+  float: left;
+}
+
+.col-7 {
+  width: calc(100% / 12 * 7);
+  float: left;
+}
+
+.col-8 {
+  width: calc(100% / 12 * 8);
+  float: left;
+}
+
+.col-9 {
+  width: calc(100% / 12 * 9);
+  float: left;
+}
+
+.col-10 {
+  width: calc(100% / 12 * 10);
+  float: left;
+}
+
+.col-11 {
+  width: calc(100% / 12 * 11);
+  float: left;
+}
+
+.col-12 {
+  width: calc(100% / 12 * 12);
+  float: left;
+}
+
+.header-bar {
+  background: #9933cc;
+  height: 100%;
+  width: 100%;
+  border-right-color: transparent;
+}
+
+.sidebar-menu {
+  padding-top: 15px;
+}
+.sidebar-menu .menu-btn {
+  background-color: #33b5e5;
+  border: none;
+  width: 100%;
+  height: 15%;
+  margin-bottom: 10px;
+}
+
+.content-panel {
+  padding-top: 15px;
+}
+.content-panel .panel-body {
+  background-color: #33b5e5;
+  border: none;
+  width: 100%;
+  height: 92%;
+}
+
+.footer-bar {
+  background: #0099cc;
+  height: 100%;
+  width: 100%;
+  border-right-color: transparent;
+}
+
+.info-text {
+  margin-top: 20px;
+  color: #333;
+}
+
+/*# sourceMappingURL=responsive-grid.css.map */

@@ -1,23 +1,22 @@
 {
   "name": "sass-learning-project",
   "version": "1.0.0",
-  "description": "Thực hành chuyển đổi CSS truyền thống sang cấu trúc SASS chuẩn (abstracts, base, layout, components)",
+  "description": "Tái cấu trúc mã CSS của responsive-grid (CodeGym) thành SASS chuẩn mực",
   "main": "index.html",
   "scripts": {
-    "build": "sass main.scss main.css && sass styles.scss styles.css && sass scss:css --no-source-map",
+    "build": "sass responsive-grid.scss responsive-grid.css && sass main.scss main.css",
+    "build-grid": "sass responsive-grid.scss responsive-grid.css",
+    "watch-grid": "sass responsive-grid.scss responsive-grid.css --watch",
     "build-main": "sass main.scss main.css",
-    "watch-main": "sass main.scss main.css --watch",
-    "build-single": "sass styles.scss styles.css",
-    "watch-single": "sass styles.scss styles.css --watch",
-    "build-css": "sass scss:css --no-source-map",
-    "watch-css": "sass scss:css --watch"
+    "watch-main": "sass main.scss main.css --watch"
   },
   "keywords": [
     "sass",
     "scss",
     "css",
     "compiler",
-    "modular-sass"
+    "responsive-grid",
+    "codegym"
   ],
   "author": "Trieu Phuong Giang",
   "license": "ISC",

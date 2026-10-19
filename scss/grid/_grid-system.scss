@@ -1,0 +1,129 @@
+// Grid System Core Layout
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.gridcontainer {
+  width: 100%;
+  position: relative;
+  @include clearfix;
+
+  &.guide-grid {
+    opacity: 0.1;
+  }
+
+  &.overlay-grid {
+    position: absolute;
+    opacity: 0.9;
+    width: auto;
+    left: 8px;
+    right: 10px;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+.gridwrapper {
+  overflow: auto;
+  position: relative;
+  height: 250px;
+  @include clearfix;
+
+  &.header-wrapper {
+    height: $header-height;
+  }
+
+  &.main-wrapper {
+    height: $main-height;
+  }
+
+  &.footer-wrapper {
+    height: $footer-height;
+  }
+
+  &.guide-wrapper {
+    height: $guide-height;
+  }
+}
+
+.gridcontent {
+  width: calc(100% / #{$grid-columns});
+  margin: 0;
+  border-right: 1px solid $grid-border-color;
+  height: 100%;
+  float: left;
+  background-color: $grid-bg;
+
+  &.no-border {
+    border: none;
+  }
+
+  &.white-bg {
+    background-color: $white;
+  }
+
+  &.guide-cell {
+    background-color: $white;
+    border-right: 1px solid $guide-border-color;
+
+    &:first-child {
+      border-left: 1px solid $guide-border-color;
+    }
+  }
+}
+
+// Generate dynamic 12-column grid classes
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include grid-column($i, $grid-columns);
+  }
+}
+
+// Component blocks
+.header-bar {
+  background: $header-color;
+  height: 100%;
+  width: 100%;
+  border-right-color: transparent;
+}
+
+.sidebar-menu {
+  padding-top: 15px;
+
+  .menu-btn {
+    background-color: $sidebar-color;
+    border: none;
+    width: 100%;
+    height: 15%;
+    margin-bottom: 10px;
+  }
+}
+
+.content-panel {
+  padding-top: 15px;
+
+  .panel-body {
+    background-color: $sidebar-color;
+    border: none;
+    width: 100%;
+    height: 92%;
+  }
+}
+
+.footer-bar {
+  background: $footer-color;
+  height: 100%;
+  width: 100%;
+  border-right-color: transparent;
+}
+
+.info-text {
+  margin-top: 20px;
+  color: #333;
+}

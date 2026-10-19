@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Refactored with SASS</title>
+    <link rel="stylesheet" href="responsive-grid.css">
+</head>
+<body>
+
+<div class="gridcontainer overlay-grid">
+    <!-- Header: 12 cột full-width -->
+    <div class="gridwrapper header-wrapper">
+        <div class="gridcontent col-12 header-bar"></div>
+    </div>
+
+    <!-- Hàng chính: 3 cột Menu (col-3) + 6 cột trống + 3 cột Nội dung (col-3) -->
+    <div class="gridwrapper main-wrapper">
+        <div class="gridcontent col-3 no-border white-bg sidebar-menu">
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+        </div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-1 no-border white-bg"></div>
+        <div class="gridcontent col-3 no-border white-bg content-panel">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer: 12 cột full-width -->
+    <div class="gridwrapper footer-wrapper">
+        <div class="gridcontent col-12 footer-bar"></div>
+    </div>
+</div>
+
+<!-- Lưới 12 cột hướng dẫn nền (guide grid) -->
+<div class="gridcontainer guide-grid">
+    <div class="gridwrapper guide-wrapper">
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+        <div class="gridcontent guide-cell"></div>
+    </div>
+</div>
+
+<p class="info-text">Resize the browser window to see that this grid will respond to the resizing, and always use 100% of the available space.</p>
+
+</body>
+</html>

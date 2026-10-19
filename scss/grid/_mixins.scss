@@ -1,0 +1,19 @@
+// Grid Mixins
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin grid-column($col-num, $total-cols: $grid-columns) {
+  width: calc(100% / #{$total-cols} * #{$col-num});
+  float: left;
+}
+
+@mixin responsive($breakpoint: 768px) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
